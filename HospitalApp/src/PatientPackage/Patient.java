@@ -22,7 +22,7 @@ public class Patient implements IUser{
     private String gender;
     private String age;
 
-    public Patient(String userID, String firstName, String surname, String address, String gender, String age) {
+    public Patient(String userID, String firstName, String surname, String address, String password, String gender, String age) {
         this.userID = userID;
         this.firstName = firstName;
         this.surname = surname;

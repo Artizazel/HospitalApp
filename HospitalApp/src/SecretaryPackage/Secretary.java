@@ -19,7 +19,7 @@ public class Secretary implements IUser{
     private String address;
     private String password;
 
-    public Secretary(String userID, String firstName, String surname, String address) {
+    public Secretary(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
         this.firstName = firstName;
         this.surname = surname;

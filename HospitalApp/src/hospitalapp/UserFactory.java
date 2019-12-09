@@ -16,35 +16,36 @@ import SecretaryPackage.Secretary;
  */
 public class UserFactory {
     
-    public static void createUser(String userID, String firstName, String surname, String address, String gender, String age)
+    public static void createUser(String userID, String firstName, String surname, String address, String password, String gender, String age)
     {
         if(userID.charAt(0) == 'P')
         {
-            Patient patient = new Patient(userID, firstName, surname, address, gender, age);
+            Patient patient = new Patient(userID, firstName, surname, address, password, gender, age);
             
             SystemDatabase.users.add(patient);
         }
         else if(userID.charAt(0) == 'D')
         {
-            Doctor doctor = new Doctor(userID, firstName, surname, address);
+            Doctor doctor = new Doctor(userID, firstName, surname, address, password);
             
             SystemDatabase.users.add(doctor);
         }
         else if(userID.charAt(0) == 'S')
         {
-            Secretary secretary = new Secretary(userID, firstName, surname, address);
+            Secretary secretary = new Secretary(userID, firstName, surname, address, password);
             
-            SystemDatabase.users.add(secretary);
+            SystemDatabase.users.add(secretary);            
             
-            System.out.println(userID);
         }
         else if(userID.charAt(0) == 'A')
         {
-            Admin admin = new Admin(userID, firstName, surname, address);
+            Admin admin = new Admin(userID, firstName, surname, address, password);
             
             SystemDatabase.users.add(admin);
         }
         
+        
+        SystemDatabase.SaveDatabase();
         
     }
     
