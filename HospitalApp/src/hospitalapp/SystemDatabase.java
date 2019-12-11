@@ -9,10 +9,17 @@ import SystemPackage.Appointment;
 import SystemPackage.DoctorFeedback;
 import SystemPackage.Medicine;
 import SystemPackage.Prescription;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
@@ -36,11 +43,29 @@ public class SystemDatabase implements DatabaseControl{
     public static void RetriveDatabase()
      {        
          
+         //JSONParser parser = new JOSNParser();
+         
+         try {
+            
+            
+            
+         Object file = new FileReader(new File("src/Database/Database.txt").getAbsolutePath());
+            
+         savedDatabase = (JSONObject)file;
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
          users = (ArrayList<IUser>)savedDatabase.get("userDatabase");
          
          
          
      }
+    
+    
+    
     
      public static void SaveDatabase()
      {
@@ -48,13 +73,59 @@ public class SystemDatabase implements DatabaseControl{
          
          savedDatabase.put("userDatabase", users);
          
+        /*
+        try {
+            
+            //FileWriter file = new FileWriter(this.getClass().getResource("Database.txt"));
+            
+            
+            FileWriter file = new FileWriter(this.getClass().getResource("Database/Database2.txt").toString()());
+
+            //file.write(savedDatabase.toJSONString());
+            
+            file.write("yay");
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        
+            
+            try {
+            
+            //FileWriter file = new FileWriter(this.getClass().getResource("Database.txt"));
+            
+            FileWriter file = new FileWriter(new File("src/Database/Database.txt").getAbsolutePath());
+            
+            
+
+            file.write(savedDatabase.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         
+         
      }
+
+    public SystemDatabase() {
+        
+        
+        
+    }
      
     
      public void RemoveUser(String userID)
      {   
          
          users.remove(findUser(userID));
+         
+         //this.getClass().getResource("filenamne.json");
          
          
      }

@@ -5,6 +5,12 @@
  */
 package View;
 
+import hospitalapp.SystemDatabase;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author sbloxham2
@@ -82,6 +88,13 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
+        
+        
+        new CreateAccount().setVisible(true);
+        
+        this.dispose();
+        
+        
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     /**
@@ -115,6 +128,10 @@ public class StartScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StartScreen().setVisible(true);
+                
+                
+                //SystemDatabase.RetriveDatabase();
+                
             }
         });
     }
