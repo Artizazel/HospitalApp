@@ -134,10 +134,6 @@ public class StartScreen extends javax.swing.JFrame {
                 
                 SystemDatabase.RetriveDatabase();
                 
-                
-                
-                
-                
                 //System.out.println(users.get(0).getFirstName());
                 
                 

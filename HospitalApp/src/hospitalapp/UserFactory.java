@@ -16,8 +16,13 @@ import SecretaryPackage.Secretary;
  */
 public class UserFactory {
     
-    public static void createUser(String userID, String firstName, String surname, String address, String password, String gender, String age)
+    public static void createUser(String userID,String firstName, String surname, String address, String password, String gender, String age)
     {
+        
+        String userType = userID;
+        
+        
+
         if(userID.charAt(0) == 'P')
         {
             Patient patient = new Patient(userID, firstName, surname, address, password, gender, age);

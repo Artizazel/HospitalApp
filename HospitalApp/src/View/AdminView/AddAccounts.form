@@ -23,43 +23,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblDoctor2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDoctor3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDoctor5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fieldPassword" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                              <Component id="fieldAddress" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                              <Component id="fieldSurname" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblDoctor" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="223" pref="223" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="fieldFirstName" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="radDoc" min="-2" max="-2" attributes="0"/>
@@ -74,6 +37,47 @@
               <Component id="btnCreate" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblDoctor2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDoctor3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDoctor5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fieldPassword" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                                  <Component id="fieldAddress" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                                  <Component id="fieldSurname" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="lblDoctor" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldFirstName" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblDoctor1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="223" pref="223" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="fieldUserID" alignment="1" min="-2" pref="189" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -86,7 +90,12 @@
                   <Component id="radSec" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="radDoc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fieldUserID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDoctor1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fieldFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDoctor" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -106,7 +115,7 @@
                   <Component id="lblDoctor5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="fieldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCancel" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="btnCreate" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
@@ -201,6 +210,19 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDoctor1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="User ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldUserID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter User ID"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldUserIDActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

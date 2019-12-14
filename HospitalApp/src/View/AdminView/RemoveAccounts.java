@@ -7,6 +7,7 @@ package View.AdminView;
 
 import hospitalapp.IUser;
 import hospitalapp.SystemDatabase;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -98,13 +99,14 @@ public class RemoveAccounts extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
-                .addGap(43, 43, 43))
+                        .addGap(71, 71, 71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(64, 64, 64)
@@ -144,14 +146,24 @@ public class RemoveAccounts extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
+        
+        if(txtUserIDField.getText().charAt(0) != 'A' && txtUserIDField.getText().charAt(0) != 'P')
+        {
+            SystemDatabase.RemoveUser(txtUserIDField.getText());
 
+            showMessageDialog(null, "User Removed");
+            
         new AdminHomepage().setVisible(true);
         this.dispose();
-
+        }
+        else
+            showMessageDialog(null, "Can't remove admins or patients");
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancel1ActionPerformed
         // TODO add your handling code here:
+        new AdminHomepage().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCancel1ActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -160,6 +172,7 @@ public class RemoveAccounts extends javax.swing.JFrame {
         IUser user = SystemDatabase.findUser(txtUserIDField.getText());
         
         txtDetails.setText(user.getFirstName() + "\n" + user.getSurname() + "\n" + user.getAddress() + "\n" + user.getPassword());
+        
         
     }//GEN-LAST:event_btnSearchActionPerformed
 

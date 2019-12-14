@@ -297,7 +297,12 @@ public class SystemDatabase implements DatabaseControl{
      public static void RemoveUser(String userID)
      {   
          
+        
+         
+         
          users.remove(findUser(userID));
+         
+         
          
          SaveDatabase();
          
