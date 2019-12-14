@@ -229,8 +229,8 @@ public class CreateAccount extends javax.swing.JFrame {
             
         }
         
-
-        System.out.println(SystemDatabase.users.get(0).getFirstName());
+System.out.println(fieldPassword.getText());
+        System.out.println(SystemDatabase.users.get(0).getPassword());
 
     }//GEN-LAST:event_btnCreateActionPerformed
 

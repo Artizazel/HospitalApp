@@ -5,6 +5,8 @@
  */
 package View;
 
+import View.AdminView.AdminHomepage;
+import View.PatientView.PatientHomepage;
 import hospitalapp.SystemDatabase;
 
 /**
@@ -125,16 +127,30 @@ public class LoginForm extends javax.swing.JFrame {
             System.out.println(userID);
             if(SystemDatabase.users.get(i).getUserID() == null ? userID == null : SystemDatabase.users.get(i).getUserID().equals(userID))
             {
+                
+                if(SystemDatabase.users.get(i).getPassword() == null ? password == null : SystemDatabase.users.get(i).getPassword().equals(password))
+                {
+                
                 System.out.println("Found");
                 
                 if(userID.charAt(0) == 'A')
-                {}
+                {
+                    SystemDatabase.setCurrentUserID(userID);
+                    new AdminHomepage().setVisible(true);
+                    this.dispose();              
+                }
                 if(userID.charAt(0) == 'P')
-                {}
+                {
+                    SystemDatabase.setCurrentUserID(userID);
+                    new PatientHomepage().setVisible(true);
+                    this.dispose();                
+                }
                 if(userID.charAt(0) == 'S')
                 {}
                 if(userID.charAt(0) == 'D')
                 {}
+                
+                }
                 
                 
             }
@@ -143,7 +159,7 @@ public class LoginForm extends javax.swing.JFrame {
             
         }
         
-        lblWrongInput.setText("Wrong Username");
+        lblWrongInput.setText("Wrong Username or Password");
         
         
         

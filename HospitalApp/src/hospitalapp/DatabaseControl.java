@@ -11,11 +11,11 @@ package hospitalapp;
  */
 public interface DatabaseControl {
     
-    public abstract void RemoveUser(String userID);
+    //public abstract void RemoveUser(String userID);
     
-    public abstract IUser findUser(String userID);
+    //public abstract IUser findUser(String userID);
     
-    public abstract IUser findSecretary();
+    //public abstract IUser findSecretary();
     
     
     

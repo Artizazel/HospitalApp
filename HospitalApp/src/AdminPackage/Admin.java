@@ -28,6 +28,7 @@ public class Admin implements IUser{
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;
+        this.password = password;
     }
 
     public String getPassword() {

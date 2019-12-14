@@ -37,7 +37,7 @@ public class SystemDatabase implements DatabaseControl{
     public static ArrayList<Prescription> prescriptions = new ArrayList<>();
     
      
-    
+    private static String currentUserID;
     
     public static void RetriveUsers()
     {
@@ -294,7 +294,7 @@ public class SystemDatabase implements DatabaseControl{
     }
      
     
-     public void RemoveUser(String userID)
+     public static void RemoveUser(String userID)
      {   
          
          users.remove(findUser(userID));
@@ -306,7 +306,7 @@ public class SystemDatabase implements DatabaseControl{
          
      }
     
-     public IUser findSecretary()
+     public static IUser findSecretary()
      {
          
          for (int i = 0; i < users.size(); i++) {
@@ -320,7 +320,8 @@ public class SystemDatabase implements DatabaseControl{
          
      }
      
-     public IUser findUser(String userID)
+     
+     public static IUser findUser(String userID)
      {
          
          for (int i = 0; i < users.size(); i++) {
@@ -332,6 +333,14 @@ public class SystemDatabase implements DatabaseControl{
          
          return null;
      }
+
+    public static String getCurrentUserID() {
+        return currentUserID;
+    }
+
+    public static void setCurrentUserID(String currentUserID) {
+        SystemDatabase.currentUserID = currentUserID;
+    }
      
      
      

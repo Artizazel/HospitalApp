@@ -27,6 +27,7 @@ public class Patient implements IUser{
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;
+        this.password = password;
         this.gender = gender;
         this.age = age;
     }
