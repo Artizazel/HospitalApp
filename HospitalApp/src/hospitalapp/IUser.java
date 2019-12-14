@@ -17,10 +17,18 @@ public interface IUser {
     String address = "";
     String password = "";
     
+    String age = "";
+    String gender = "";
+    
     public String getUserID();
     public String getFirstName();
     public String getSurname();
     public String getAddress();
+    public String getPassword();
+    
+    public String getAge();
+    public String getGender();
+    
 
 
     

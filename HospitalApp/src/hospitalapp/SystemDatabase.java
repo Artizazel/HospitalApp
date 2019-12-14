@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -35,30 +36,241 @@ public class SystemDatabase implements DatabaseControl{
     public static ArrayList<Medicine> medicines = new ArrayList<>();
     public static ArrayList<Prescription> prescriptions = new ArrayList<>();
     
-    
-    static JSONObject savedDatabase = new JSONObject();
-    
      
-     
-    public static void RetriveDatabase()
-     {        
-         
-         //JSONParser parser = new JOSNParser();
-         
+    
+    
+    public static void RetriveUsers()
+    {
+        
+        
+        
+        
+         JSONParser JParser = new JSONParser();         
          try {
+             
+             JSONArray JSONUsers = (JSONArray) JParser.parse(new FileReader("src/Database/Users.txt"));
+             
+             if(JSONUsers != null)
+             {
+                 for (int i = 0; i < JSONUsers.size(); i++) {
+                     
+                     JSONObject UserField = (JSONObject) JSONUsers.get(i);
+                     
+                     
+                     String ID = (String) UserField.get("ID");
+                     String firstname = (String) UserField.get("firstname");
+                     String surname = (String) UserField.get("surname");
+                     String address = (String) UserField.get("address");
+                     String password = (String) UserField.get("password");
+                     String age = "";
+                     String gender = "";
+                     
+                     if(ID.charAt(0) == 'P')
+                     {
+                         
+                         age = (String) UserField.get("age");
+                         
+                         gender = (String) UserField.get("gender");
+                         
+                     }
+                     
+                     
+                     UserFactory.createUser(ID, firstname, surname, address, password, gender, age);
+                     
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
             
-            
-            
-         Object file = new FileReader(new File("src/Database/Database.txt").getAbsolutePath());
-            
-         savedDatabase = (JSONObject)file;
-            
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          
-         users = (ArrayList<IUser>)savedDatabase.get("userDatabase");
+        
+        
+        
+    }
+    
+    
+    public static void SaveUsers()
+    {
+        
+         
+         JSONArray JSONUsers = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < users.size(); i++) {
+             
+             JSONObject userField = new JSONObject();
+             
+             userField.put("ID", users.get(i).getUserID());
+             userField.put("firstname", users.get(i).getFirstName());
+             userField.put("surname", users.get(i).getSurname());
+             userField.put("address", users.get(i).getAddress());
+             userField.put("password", users.get(i).getPassword());
+             
+             if(users.get(i).getUserID().charAt(0) == 'P')
+             {
+                 
+                 userField.put("age", users.get(i).getAge());
+                 userField.put("gender", users.get(i).getGender());
+                 
+             }
+             
+             
+             JSONUsers.add(i, userField);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(new File("src/Database/Users.txt").getAbsolutePath());
+            
+            
+
+            file.write(JSONUsers.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         
+        
+        
+    }
+    
+    
+    public static void SaveAccountRequests()
+    {
+        
+        JSONArray JSONAccounts = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < accountRequests.size(); i++) {
+             
+             JSONObject accountFields = new JSONObject();
+             
+             
+             accountFields.put("firstname", accountRequests.get(i).getFirstName());
+             accountFields.put("surname", accountRequests.get(i).getSurname());
+             accountFields.put("address", accountRequests.get(i).getAddress());
+             accountFields.put("password", accountRequests.get(i).getPassword());
+             
+             accountFields.put("age", accountRequests.get(i).getAge());
+             accountFields.put("gender", accountRequests.get(i).getGender());
+             
+             accountFields.put("rID", accountRequests.get(i).getRecieverID());
+                 
+             
+             
+             
+             JSONAccounts.add(i, accountFields);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(new File("src/Database/AccountRequests.txt").getAbsolutePath());
+            
+            
+
+            file.write(JSONAccounts.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+    public static void RetriveAccountRequests()
+    {
+        
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONAccountRequests = (JSONArray) JParser.parse(new FileReader("src/Database/AccountRequests.txt"));
+             
+             if(JSONAccountRequests != null)
+             {
+                 for (int i = 0; i < JSONAccountRequests.size(); i++) {
+                     
+                     JSONObject AccountFields = (JSONObject) JSONAccountRequests.get(i);
+                     
+                     
+                     String rID = (String) AccountFields.get("rID");
+                     String firstname = (String) AccountFields.get("firstname");
+                     String surname = (String) AccountFields.get("surname");
+                     String address = (String) AccountFields.get("address");
+                     String password = (String) AccountFields.get("password");
+                     String age = (String) AccountFields.get("age");
+                     String gender = (String) AccountFields.get("gender");
+                         
+                
+                     
+                     
+                    AccountRequest accountRequest = new AccountRequest(rID, firstname, surname, address, password, gender, age);
+                     
+                    accountRequests.add(accountRequest);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
+    
+    
+     
+    public static void RetriveDatabase()
+     {        
+         
+         RetriveUsers();
+         
+         
          
          
          
@@ -69,47 +281,9 @@ public class SystemDatabase implements DatabaseControl{
     
      public static void SaveDatabase()
      {
-               
-         
-         savedDatabase.put("userDatabase", users);
-         
-        /*
-        try {
-            
-            //FileWriter file = new FileWriter(this.getClass().getResource("Database.txt"));
-            
-            
-            FileWriter file = new FileWriter(this.getClass().getResource("Database/Database2.txt").toString()());
-
-            //file.write(savedDatabase.toJSONString());
-            
-            file.write("yay");
-            file.close();
-            
-            
-        } catch (IOException ex) {
-            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-            
-            try {
-            
-            //FileWriter file = new FileWriter(this.getClass().getResource("Database.txt"));
-            
-            FileWriter file = new FileWriter(new File("src/Database/Database.txt").getAbsolutePath());
-            
-            
-
-            file.write(savedDatabase.toJSONString());
-            
-            file.close();
-            
-            
-        } catch (IOException ex) {
-            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-         
+              
+         SaveUsers();
+         SaveAccountRequests();
          
      }
 
@@ -124,6 +298,8 @@ public class SystemDatabase implements DatabaseControl{
      {   
          
          users.remove(findUser(userID));
+         
+         SaveDatabase();
          
          //this.getClass().getResource("filenamne.json");
          

@@ -18,7 +18,10 @@ public class Doctor implements IUser{
     private String surname;
     private String address;
     private String password;
+    private String age;
+    private String gender;
 
+    
     
     public Doctor(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
@@ -36,6 +39,22 @@ public class Doctor implements IUser{
     }
 
     
+    
+     public String getAge() {
+        return null;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return null;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
     
     
     public String getUserID() {

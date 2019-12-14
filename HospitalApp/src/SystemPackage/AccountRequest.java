@@ -17,16 +17,32 @@ public class AccountRequest {
     private String age;
     private String gender;
     private String password;
+    private String recieverID;
 
     
-    public AccountRequest(String firstName, String surname, String address, String age, String gender, String password) {
+    public AccountRequest(String firstName, String surname, String address, String age, String gender, String password, String recieverID) {
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;
         this.age = age;
         this.gender = gender;
         this.password = password;
+        this.recieverID = recieverID;
     }   
+
+    
+    
+    
+    public String getRecieverID() {
+        return recieverID;
+    }
+
+    public void setRecieverID(String recieverID) {
+        this.recieverID = recieverID;
+    }
+    
+    
+    
     
     
     

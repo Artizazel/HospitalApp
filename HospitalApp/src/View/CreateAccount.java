@@ -220,12 +220,12 @@ public class CreateAccount extends javax.swing.JFrame {
         
         if(SystemDatabase.users.size() == 0)
         {
-            UserFactory.createUser("A0", fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());            
+            UserFactory.createUser("A0000", fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());            
         }
         else
         {
             
-            
+            UserFactory.createUser("P" + String.format("%04d", SystemDatabase.users.size()), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());
             
         }
         

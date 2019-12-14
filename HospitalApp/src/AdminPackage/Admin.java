@@ -19,6 +19,9 @@ public class Admin implements IUser{
     private String surname;
     private String address;
     private String password;
+    private String age;
+    private String gender;
+    
 
     public Admin(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
@@ -37,6 +40,24 @@ public class Admin implements IUser{
 
     
     
+    
+    
+    
+     public String getAge() {
+        return null;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return null;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
     
     public String getUserID() {
         return userID;

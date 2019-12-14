@@ -6,6 +6,7 @@
 package View;
 
 import hospitalapp.SystemDatabase;
+import static hospitalapp.SystemDatabase.users;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -79,6 +80,8 @@ public class StartScreen extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         
+        
+        
         new LoginForm().setVisible(true);
         
         this.dispose();
@@ -128,6 +131,16 @@ public class StartScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StartScreen().setVisible(true);
+                
+                SystemDatabase.RetriveDatabase();
+                
+                
+                
+                
+                
+                
+                //System.out.println(users.get(0).getFirstName());
+                
                 
                 
                 //SystemDatabase.RetriveDatabase();

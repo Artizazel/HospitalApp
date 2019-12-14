@@ -18,6 +18,8 @@ public class Secretary implements IUser{
     private String surname;
     private String address;
     private String password;
+    private String age;
+    private String gender;
 
     public Secretary(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
@@ -25,8 +27,23 @@ public class Secretary implements IUser{
         this.surname = surname;
         this.address = address;
     }
-
     
+    
+    public String getAge() {
+        return null;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return null;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
     
     
     
