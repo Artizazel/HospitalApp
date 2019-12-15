@@ -5,23 +5,34 @@
  */
 package View.AdminView;
 
+import SystemPackage.DoctorFeedback;
 import hospitalapp.SystemDatabase;
+import java.util.ArrayList;
 /**
  *
  * @author sbloxham2
  */
 public class CreateFeedback extends javax.swing.JFrame {
 
+    
+    ArrayList<DoctorFeedback> tempFeedback = new ArrayList<>();
     /**
      * Creates new form CreateFeedback
      */
     public CreateFeedback() {
         initComponents();
         
+        
+        
         for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) {
             if(SystemDatabase.doctorFeedback.get(i).getAdminApproved() == false)
-            combFeedbackSelect.addItem(SystemDatabase.doctorFeedback.get(i).getDoctorID() + "  Rating[" +SystemDatabase.doctorFeedback.get(i).getRating() + "]");
+            {
+            combFeedbackSelect.addItem(SystemDatabase.doctorFeedback.get(i).getDoctorID() + "  Rating[" +SystemDatabase.doctorFeedback.get(i).getRating() + "]  " + SystemDatabase.doctorFeedback.get(i).getNotes().substring(0, 10));
+            
+            tempFeedback.add(SystemDatabase.doctorFeedback.get(i));
+            }
         }
+        
         
         
     }
@@ -137,7 +148,8 @@ public class CreateFeedback extends javax.swing.JFrame {
     private void combFeedbackSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combFeedbackSelectActionPerformed
         // TODO add your handling code here:
         
-        combFeedbackSelect.getSelectedItem().toString();
+        
+        
         
         
         
@@ -151,8 +163,18 @@ public class CreateFeedback extends javax.swing.JFrame {
     private void btnSendFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendFeedbackActionPerformed
         // TODO add your handling code here:
         
+         
+        
+         tempFeedback.get(combFeedbackSelect.getSelectedIndex()).setNotes(txtFeedbackNotes.getText());
+         tempFeedback.get(combFeedbackSelect.getSelectedIndex()).setAdminApproved(true);
+        
+         
+        SystemDatabase.SaveFeedback();
         
         
+        new AdminHomepage().setVisible(true);
+        this.dispose();
+         
     }//GEN-LAST:event_btnSendFeedbackActionPerformed
 
     private void btnCancel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancel3ActionPerformed

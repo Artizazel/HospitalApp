@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hospitalapp;
+import PatientPackage.Patient;
 import SystemPackage.AccountRequest;
 import SystemPackage.Appointment;
 import SystemPackage.DoctorFeedback;
@@ -35,6 +36,7 @@ public class SystemDatabase implements DatabaseControl{
     public static ArrayList<DoctorFeedback> doctorFeedback = new ArrayList<>();
     public static ArrayList<Medicine> medicines = new ArrayList<>();
     public static ArrayList<Prescription> prescriptions = new ArrayList<>();
+    public static ArrayList<IUser> deletionRequests = new ArrayList<>();
     
     
     static File usersFile = new File("src/Database/Users.txt");
@@ -42,7 +44,8 @@ public class SystemDatabase implements DatabaseControl{
     static File doctorFeedbackFile = new File("src/Database/DoctorFeedback.txt");
      static File appointmentsFile = new File("src/Database/Appointments.txt");
     static File prescriptionsFile = new File("src/Database/Prescriptions.txt");
-    static File mediciesFile = new File("src/Database/Medicines.txt");
+    static File medicinesFile = new File("src/Database/Medicines.txt");
+    static File deletionRequestsFile = new File ("src/Database/DeletionRequests.txt");
     
      
     private static String currentUserID;
@@ -268,6 +271,118 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
+     
+    public static void SaveDeletionRequests()
+    {
+        
+        JSONArray JSONDeletionRequests = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < deletionRequests.size(); i++) {
+             
+             JSONObject deletionFields = new JSONObject();
+             
+             
+             deletionFields.put("ID", deletionRequests.get(i).getUserID());
+             deletionFields.put("firstname", deletionRequests.get(i).getFirstName());
+             deletionFields.put("surname", deletionRequests.get(i).getSurname());
+             deletionFields.put("address", deletionRequests.get(i).getAddress());
+             deletionFields.put("password", deletionRequests.get(i).getPassword());
+             deletionFields.put("age", deletionRequests.get(i).getAge());
+             deletionFields.put("gender", deletionRequests.get(i).getGender());
+                 
+             
+             
+             
+             JSONDeletionRequests.add(i, deletionFields);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(deletionRequestsFile.getAbsolutePath());
+            
+            
+
+            file.write(JSONDeletionRequests.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+      
+    public static void RetriveDeletionRequests()
+    {
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONDeletionRequests = (JSONArray) JParser.parse(new FileReader(deletionRequestsFile.getAbsolutePath()));
+             
+             
+             
+             if(JSONDeletionRequests != null)
+             {
+                 
+                 
+                 for (int i = 0; i < JSONDeletionRequests.size(); i++) {
+                     
+                     
+                     JSONObject deletionFields = (JSONObject) JSONDeletionRequests.get(i);
+                     
+                     
+                     String ID = (String) deletionFields.get("ID");
+                     String firstname = (String) deletionFields.get("firstname");
+                     String surname = (String) deletionFields.get("surname");
+                     String address = (String) deletionFields.get("address");
+                     String password = (String) deletionFields.get("password");
+                     String age = (String) deletionFields.get("age");
+                     String gender = (String) deletionFields.get("gender");
+                         
+                    
+                
+                     
+                     
+                    Patient deletionRequestObj = new Patient(ID, firstname, surname, address, password, gender, age);
+                     
+                    deletionRequests.add(deletionRequestObj);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
     
     
     public static void SaveAccountRequests()
@@ -442,6 +557,18 @@ public class SystemDatabase implements DatabaseControl{
          
      }
      
+     public static DoctorFeedback findFeedback(String notes)
+     {
+         
+         for (int i = 0; i < doctorFeedback.size(); i++) {
+             if(doctorFeedback.get(i).getNotes().equals(notes))
+             {
+                 return doctorFeedback.get(i);                 
+             }
+         }
+         
+         return null;
+     }
      
      public static IUser findUser(String userID)
      {
