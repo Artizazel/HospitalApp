@@ -180,6 +180,10 @@ public class GiveFeedback extends javax.swing.JFrame {
 
       SystemDatabase.SaveFeedback();
       
+      
+      new PatientHomepage().setVisible(true);
+        this.dispose();
+      
     }//GEN-LAST:event_btnSendFeedbackActionPerformed
 
     private void btnCancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancel2ActionPerformed

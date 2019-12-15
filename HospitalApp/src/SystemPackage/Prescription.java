@@ -14,17 +14,17 @@ public class Prescription {
     private String docID;
     private String patientID;
     private String doctorNotes;
-    private Medicine medicine;
-    private int quality;
+    private String medName;
+    private int quantity;
     private String dosage;
     private boolean recieved;
 
-    public Prescription(String docID, String patientID, String doctorNotes, Medicine medicine, int quality, String dosage, boolean recieved) {
+    public Prescription(String docID, String patientID, String doctorNotes, String medName, int quantity, String dosage, boolean recieved) {
         this.docID = docID;
         this.patientID = patientID;
         this.doctorNotes = doctorNotes;
-        this.medicine = medicine;
-        this.quality = quality;
+        this.medName = medName;
+        this.quantity = quantity;
         this.dosage = dosage;
         this.recieved = recieved;
     }
@@ -53,20 +53,20 @@ public class Prescription {
         this.doctorNotes = doctorNotes;
     }
 
-    public Medicine getMedicine() {
-        return medicine;
+    public String getMedName() {
+        return medName;
     }
 
-    public void setMedicine(Medicine medicine) {
-        this.medicine = medicine;
+    public void setMedName(String medName) {
+        this.medName = medName;
     }
 
-    public int getQuality() {
-        return quality;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuality(int quality) {
-        this.quality = quality;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDosage() {

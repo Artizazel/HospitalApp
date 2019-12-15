@@ -119,11 +119,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnViewPrescription">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Prescription"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewPrescriptionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGiveFeedback">
       <Properties>
@@ -137,11 +143,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRequestAppointmentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnViewHistory">
       <Properties>
         <Property name="text" type="java.lang.String" value="View History"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewHistoryActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

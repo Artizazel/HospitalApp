@@ -7,6 +7,7 @@ package View;
 
 import View.AdminView.AdminHomepage;
 import View.PatientView.PatientHomepage;
+import View.SecretaryView.SecretaryHomepage;
 import hospitalapp.SystemDatabase;
 
 /**
@@ -146,7 +147,11 @@ public class LoginForm extends javax.swing.JFrame {
                     this.dispose();                
                 }
                 if(userID.charAt(0) == 'S')
-                {}
+                {
+                           SystemDatabase.setCurrentUserID(userID);
+                    new SecretaryHomepage().setVisible(true);
+                    this.dispose();          
+                }
                 if(userID.charAt(0) == 'D')
                 {}
                 

@@ -63,8 +63,18 @@ public class PatientHomepage extends javax.swing.JFrame {
         });
 
         btnViewAppointment.setText("View Appointment");
+        btnViewAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAppointmentActionPerformed(evt);
+            }
+        });
 
         btnViewPrescription.setText("View Prescription");
+        btnViewPrescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPrescriptionActionPerformed(evt);
+            }
+        });
 
         btnGiveFeedback.setText("Give Feedback");
         btnGiveFeedback.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +84,18 @@ public class PatientHomepage extends javax.swing.JFrame {
         });
 
         btnRequestAppointment.setText("Request Appointment");
+        btnRequestAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestAppointmentActionPerformed(evt);
+            }
+        });
 
         btnViewHistory.setText("View History");
+        btnViewHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,7 +167,7 @@ public class PatientHomepage extends javax.swing.JFrame {
     private void btnDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountActionPerformed
         // TODO add your handling code here:
         
-        
+        new DeleteAccount().setVisible(true);
         
     }//GEN-LAST:event_btnDeleteAccountActionPerformed
 
@@ -159,6 +179,44 @@ public class PatientHomepage extends javax.swing.JFrame {
                     this.dispose();
         
     }//GEN-LAST:event_btnGiveFeedbackActionPerformed
+
+    private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
+        // TODO add your handling code here:
+        
+        
+        new RequestAppointment().setVisible(true);
+                    this.dispose();
+        
+        
+        
+    }//GEN-LAST:event_btnRequestAppointmentActionPerformed
+
+    private void btnViewAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAppointmentActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        new ViewAppointment().setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_btnViewAppointmentActionPerformed
+
+    private void btnViewPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescriptionActionPerformed
+        // TODO add your handling code here:
+        
+        
+        new ViewPrescription().setVisible(true);
+                    this.dispose();
+        
+    }//GEN-LAST:event_btnViewPrescriptionActionPerformed
+
+    private void btnViewHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHistoryActionPerformed
+        // TODO add your handling code here:
+        
+          
+        new ViewHistory().setVisible(true);
+                    this.dispose();
+        
+    }//GEN-LAST:event_btnViewHistoryActionPerformed
 
     /**
      * @param args the command line arguments

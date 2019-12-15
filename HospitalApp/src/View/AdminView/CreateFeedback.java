@@ -8,6 +8,7 @@ package View.AdminView;
 import SystemPackage.DoctorFeedback;
 import hospitalapp.SystemDatabase;
 import java.util.ArrayList;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author sbloxham2
@@ -171,7 +172,7 @@ public class CreateFeedback extends javax.swing.JFrame {
          
         SystemDatabase.SaveFeedback();
         
-        
+        showMessageDialog(null, "Feedback Sent");
         new AdminHomepage().setVisible(true);
         this.dispose();
          

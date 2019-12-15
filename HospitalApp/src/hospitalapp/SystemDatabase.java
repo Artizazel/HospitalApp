@@ -166,6 +166,7 @@ public class SystemDatabase implements DatabaseControl{
     }
     
     
+    
     public static void SaveFeedback()
     {
         
@@ -245,6 +246,120 @@ public class SystemDatabase implements DatabaseControl{
                     DoctorFeedback doctorFeedbackObj = new DoctorFeedback(DoctorID, rating, notes, adminApproved);
                      
                     doctorFeedback.add(doctorFeedbackObj);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
+    
+    
+    public static void SavePrescriptions()
+    {
+        
+        JSONArray JSONPres = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < doctorFeedback.size(); i++) {
+             
+             JSONObject presFields = new JSONObject();
+             
+             
+             presFields.put("docID", prescriptions.get(i).getDocID());
+             presFields.put("patientID", prescriptions.get(i).getPatientID());
+             presFields.put("doctorNotes", prescriptions.get(i).getDoctorNotes());
+             presFields.put("medName", prescriptions.get(i).getMedName());
+             presFields.put("quantity", prescriptions.get(i).getQuantity());
+             presFields.put("dosage", prescriptions.get(i).getDosage());
+             presFields.put("recieved", prescriptions.get(i).getRecieved());
+             
+             
+             
+             
+             JSONPres.add(i, presFields);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(prescriptionsFile.getAbsolutePath());
+            
+            
+
+            file.write(JSONPres.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+      
+    public static void RetrivePrescriptions()
+    {
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONPres = (JSONArray) JParser.parse(new FileReader(prescriptionsFile.getAbsolutePath()));
+             
+             
+             
+             if(JSONPres != null)
+             {
+                 
+                 
+                 for (int i = 0; i < JSONPres.size(); i++) {
+                     
+                   
+                     
+                     JSONObject presFields = (JSONObject) JSONPres.get(i);
+                     
+                     
+                     String docID = (String) presFields.get("docID");
+                     String patientID = (String) presFields.get("patientID");
+                     String doctorNotes = (String) presFields.get("doctorNotes");
+                     String medName = (String) presFields.get("medName");
+                     int quantity = (int) presFields.get("quantity");
+                     String dosage = (String) presFields.get("dosage");
+                     boolean recieved = (boolean) presFields.get("recieved");
+                     
+                         
+                
+                     
+                     
+                    Prescription preObj = new Prescription(docID, patientID, doctorNotes, medName, quantity, dosage, recieved);
+                     
+                    prescriptions.add(preObj);
                     
                     
                     
@@ -385,6 +500,112 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
+     public static void SaveAppointments()
+    {
+        
+        JSONArray JSONAppointments = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < appointments.size(); i++) {
+             
+             JSONObject appointmentFields = new JSONObject();
+             
+             
+             appointmentFields.put("docID", appointments.get(i).getDocId());
+             appointmentFields.put("patientID", appointments.get(i).getPatientID());
+             appointmentFields.put("dates", appointments.get(i).getDates());
+             appointmentFields.put("status", appointments.get(i).getStatus());
+             
+             
+             
+             JSONAppointments.add(i, appointmentFields);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(appointmentsFile.getAbsolutePath());
+            
+            
+
+            file.write(JSONAppointments.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+      
+    public static void RetriveAppointments()
+    {
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONAppointments = (JSONArray) JParser.parse(new FileReader(appointmentsFile.getAbsolutePath()));
+             
+             
+             
+             if(JSONAppointments != null)
+             {
+                 
+                 
+                 for (int i = 0; i < JSONAppointments.size(); i++) {
+                     
+                     
+                     JSONObject appointmentFields = (JSONObject) JSONAppointments.get(i);
+                     
+                     
+                     String docID = (String) appointmentFields.get("docID");
+                     String patientID = (String) appointmentFields.get("patientID");
+                     String dates = (String) appointmentFields.get("dates");
+                     String status = (String) appointmentFields.get("status");
+                    
+                         
+                    
+                
+                     
+                     
+                    Appointment appointmentFieldsObj = new Appointment(docID, patientID, dates, status);
+                     
+                    appointments.add(appointmentFieldsObj);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
+    
     public static void SaveAccountRequests()
     {
         
@@ -492,6 +713,106 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
+    
+    
+    
+    public static void SaveMedicines()
+    {
+        
+        JSONArray JSONMeds = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < medicines.size(); i++) {
+             
+             JSONObject medFields = new JSONObject();
+             
+             
+             medFields.put("name", medicines.get(i).getName());
+             medFields.put("stock", medicines.get(i).getStock());
+             
+             
+             JSONMeds.add(i, medicines);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(new File(medicinesFile.getAbsolutePath()));
+            
+            
+
+            file.write(JSONMeds.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+    public static void RetriveMedicines()
+    {
+        
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONMeds = (JSONArray) JParser.parse(new FileReader(medicinesFile.getAbsolutePath()));
+             
+             if(JSONMeds != null)
+             {
+                 for (int i = 0; i < JSONMeds.size(); i++) {
+                     
+                     JSONObject medFields = (JSONObject) JSONMeds.get(i);
+                     
+                     
+                     String name = (String) medFields.get("name");
+                     int stock = (int) medFields.get("stock");
+                   
+                         
+                
+                     
+                     
+                    Medicine meds = new Medicine(name, stock);
+                     
+                    medicines.add(meds);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
+    
+    
+    
      
     public static void RetriveDatabase()
      {        
@@ -502,6 +823,13 @@ public class SystemDatabase implements DatabaseControl{
          
          RetriveFeedback();
          
+         RetriveDeletionRequests();
+         
+         RetriveAppointments();
+         
+         RetriveMedicines();
+         
+         RetrivePrescriptions();
          
      }
     
@@ -516,6 +844,14 @@ public class SystemDatabase implements DatabaseControl{
          SaveAccountRequests();
          
          SaveFeedback();
+         
+         SaveDeletionRequests();
+         
+         SaveAppointments();
+         
+         SaveMedicines();
+         
+         SavePrescriptions();
          
      }
 
@@ -542,6 +878,9 @@ public class SystemDatabase implements DatabaseControl{
          
          
      }
+     
+     
+     
     
      public static IUser findSecretary()
      {
