@@ -51,7 +51,7 @@ public class UserFactory {
         
         
         
-        SystemDatabase.SaveDatabase();
+        SystemDatabase.SaveUsers();
         
     }
     

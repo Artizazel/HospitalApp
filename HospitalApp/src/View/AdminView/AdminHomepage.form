@@ -70,6 +70,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Doctor Ratings"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewRatingsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRemoveAccounts">
       <Properties>
@@ -83,6 +86,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Feedback"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateFeedbackActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAddAccounts">
       <Properties>

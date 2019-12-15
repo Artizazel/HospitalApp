@@ -12,13 +12,14 @@ package SystemPackage;
 public class DoctorFeedback {
     
     private String DoctorID;
-    private int rating;
+    private String rating;
     private String notes;
-    private String adminApproved;
+    private boolean adminApproved;
+   
 
     
     
-    public DoctorFeedback(String DoctorID, int rating, String notes, String adminApproved) {
+    public DoctorFeedback(String DoctorID, String rating, String notes, boolean adminApproved) {
         this.DoctorID = DoctorID;
         this.rating = rating;
         this.notes = notes;
@@ -26,7 +27,7 @@ public class DoctorFeedback {
     }
 
     
-    
+
     
     
     public String getDoctorID() {
@@ -37,11 +38,11 @@ public class DoctorFeedback {
         this.DoctorID = DoctorID;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
@@ -53,11 +54,11 @@ public class DoctorFeedback {
         this.notes = notes;
     }
 
-    public String getAdminApproved() {
+    public boolean getAdminApproved() {
         return adminApproved;
     }
 
-    public void setAdminApproved(String adminApproved) {
+    public void setAdminApproved(boolean adminApproved) {
         this.adminApproved = adminApproved;
     }
     

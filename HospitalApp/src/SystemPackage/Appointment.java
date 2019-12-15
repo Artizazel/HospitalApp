@@ -26,6 +26,8 @@ public class Appointment {
 
     
     
+    
+    
     public String getDocId() {
         return docId;
     }

@@ -17,16 +17,16 @@ public class Prescription {
     private Medicine medicine;
     private int quality;
     private String dosage;
-    private String completed;
+    private boolean recieved;
 
-    public Prescription(String docID, String patientID, String doctorNotes, Medicine medicine, int quality, String dosage, String completed) {
+    public Prescription(String docID, String patientID, String doctorNotes, Medicine medicine, int quality, String dosage, boolean recieved) {
         this.docID = docID;
         this.patientID = patientID;
         this.doctorNotes = doctorNotes;
         this.medicine = medicine;
         this.quality = quality;
         this.dosage = dosage;
-        this.completed = completed;
+        this.recieved = recieved;
     }
 
     public String getDocID() {
@@ -77,13 +77,17 @@ public class Prescription {
         this.dosage = dosage;
     }
 
-    public String getCompleted() {
-        return completed;
+    
+    
+    
+    public boolean getRecieved() {
+        return recieved;
     }
 
-    public void setCompleted(String completed) {
-        this.completed = completed;
+    public void setRecieved(boolean recieved) {
+        this.recieved = recieved;
     }
+
     
     
     

@@ -46,6 +46,11 @@ public class AdminHomepage extends javax.swing.JFrame {
         lblWelcomeMsg.setText("-Admin-");
 
         btnViewRatings.setText("View Doctor Ratings");
+        btnViewRatings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewRatingsActionPerformed(evt);
+            }
+        });
 
         btnRemoveAccounts.setText("Remove Accounts");
         btnRemoveAccounts.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +60,11 @@ public class AdminHomepage extends javax.swing.JFrame {
         });
 
         btnCreateFeedback.setText("Create Feedback");
+        btnCreateFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateFeedbackActionPerformed(evt);
+            }
+        });
 
         btnAddAccounts.setText("Add Accounts");
         btnAddAccounts.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +123,22 @@ public class AdminHomepage extends javax.swing.JFrame {
                     this.dispose();
         
     }//GEN-LAST:event_btnAddAccountsActionPerformed
+
+    private void btnViewRatingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRatingsActionPerformed
+        // TODO add your handling code here:
+        
+        new ViewFeedback().setVisible(true);
+                    this.dispose();
+        
+    }//GEN-LAST:event_btnViewRatingsActionPerformed
+
+    private void btnCreateFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateFeedbackActionPerformed
+        // TODO add your handling code here:
+        
+           new CreateFeedback().setVisible(true);
+                    this.dispose();
+        
+    }//GEN-LAST:event_btnCreateFeedbackActionPerformed
 
     /**
      * @param args the command line arguments

@@ -36,6 +36,14 @@ public class SystemDatabase implements DatabaseControl{
     public static ArrayList<Medicine> medicines = new ArrayList<>();
     public static ArrayList<Prescription> prescriptions = new ArrayList<>();
     
+    
+    static File usersFile = new File("src/Database/Users.txt");
+    static File accountRequestsFile = new File("src/Database/AccountRequests.txt");
+    static File doctorFeedbackFile = new File("src/Database/DoctorFeedback.txt");
+     static File appointmentsFile = new File("src/Database/Appointments.txt");
+    static File prescriptionsFile = new File("src/Database/Prescriptions.txt");
+    static File mediciesFile = new File("src/Database/Medicines.txt");
+    
      
     private static String currentUserID;
     
@@ -48,7 +56,7 @@ public class SystemDatabase implements DatabaseControl{
          JSONParser JParser = new JSONParser();         
          try {
              
-             JSONArray JSONUsers = (JSONArray) JParser.parse(new FileReader("src/Database/Users.txt"));
+             JSONArray JSONUsers = (JSONArray) JParser.parse(new FileReader(usersFile.getAbsolutePath()));
              
              if(JSONUsers != null)
              {
@@ -136,7 +144,7 @@ public class SystemDatabase implements DatabaseControl{
             try {
             
             
-            FileWriter file = new FileWriter(new File("src/Database/Users.txt").getAbsolutePath());
+            FileWriter file = new FileWriter(usersFile.getAbsolutePath());
             
             
 
@@ -153,6 +161,113 @@ public class SystemDatabase implements DatabaseControl{
         
         
     }
+    
+    
+    public static void SaveFeedback()
+    {
+        
+        JSONArray JSONFeedback = new JSONArray();
+         
+         
+         
+         for (int i = 0; i < doctorFeedback.size(); i++) {
+             
+             JSONObject feedbackFields = new JSONObject();
+             
+             
+             feedbackFields.put("docID", doctorFeedback.get(i).getDoctorID());
+             feedbackFields.put("rating", doctorFeedback.get(i).getRating());
+             feedbackFields.put("notes", doctorFeedback.get(i).getNotes());
+             feedbackFields.put("adminApproved", doctorFeedback.get(i).getAdminApproved());
+             
+             JSONFeedback.add(i, feedbackFields);
+             
+         }
+         
+         
+        
+            
+            try {
+            
+            
+            FileWriter file = new FileWriter(doctorFeedbackFile.getAbsolutePath());
+            
+            
+
+            file.write(JSONFeedback.toJSONString());
+            
+            file.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    
+      
+    public static void RetriveFeedback()
+    {
+        
+        
+         JSONParser JParser = new JSONParser();         
+         try {
+             
+             JSONArray JSONFeedback = (JSONArray) JParser.parse(new FileReader(doctorFeedbackFile.getAbsolutePath()));
+             
+             
+             
+             if(JSONFeedback != null)
+             {
+                 
+                 
+                 for (int i = 0; i < JSONFeedback.size(); i++) {
+                     
+                     System.out.println("Feedback retrived");
+                     
+                     JSONObject feedbackFields = (JSONObject) JSONFeedback.get(i);
+                     
+                     
+                     String DoctorID = (String) feedbackFields.get("docID");
+                     String rating = (String) feedbackFields.get("rating");
+                     String notes = (String) feedbackFields.get("notes");
+                     boolean adminApproved = (boolean) feedbackFields.get("adminApproved");
+                     
+                         
+                
+                     
+                     
+                    DoctorFeedback doctorFeedbackObj = new DoctorFeedback(DoctorID, rating, notes, adminApproved);
+                     
+                    doctorFeedback.add(doctorFeedbackObj);
+                    
+                    
+                    
+                     
+                     
+                 }
+                 
+                 
+             }
+             
+             
+             
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SystemDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
+        
+    }
+    
+    
+    
+    
     
     
     public static void SaveAccountRequests()
@@ -175,7 +290,6 @@ public class SystemDatabase implements DatabaseControl{
              accountFields.put("age", accountRequests.get(i).getAge());
              accountFields.put("gender", accountRequests.get(i).getGender());
              
-             accountFields.put("rID", accountRequests.get(i).getRecieverID());
                  
              
              
@@ -190,7 +304,7 @@ public class SystemDatabase implements DatabaseControl{
             try {
             
             
-            FileWriter file = new FileWriter(new File("src/Database/AccountRequests.txt").getAbsolutePath());
+            FileWriter file = new FileWriter(new File(accountRequestsFile.getAbsolutePath()));
             
             
 
@@ -215,7 +329,7 @@ public class SystemDatabase implements DatabaseControl{
          JSONParser JParser = new JSONParser();         
          try {
              
-             JSONArray JSONAccountRequests = (JSONArray) JParser.parse(new FileReader("src/Database/AccountRequests.txt"));
+             JSONArray JSONAccountRequests = (JSONArray) JParser.parse(new FileReader(accountRequestsFile.getAbsolutePath()));
              
              if(JSONAccountRequests != null)
              {
@@ -224,7 +338,6 @@ public class SystemDatabase implements DatabaseControl{
                      JSONObject AccountFields = (JSONObject) JSONAccountRequests.get(i);
                      
                      
-                     String rID = (String) AccountFields.get("rID");
                      String firstname = (String) AccountFields.get("firstname");
                      String surname = (String) AccountFields.get("surname");
                      String address = (String) AccountFields.get("address");
@@ -235,7 +348,7 @@ public class SystemDatabase implements DatabaseControl{
                 
                      
                      
-                    AccountRequest accountRequest = new AccountRequest(rID, firstname, surname, address, password, gender, age);
+                    AccountRequest accountRequest = new AccountRequest(firstname, surname, address, password, gender, age);
                      
                     accountRequests.add(accountRequest);
                     
@@ -270,8 +383,9 @@ public class SystemDatabase implements DatabaseControl{
          
          RetriveUsers();
          
+         RetriveAccountRequests();
          
-         
+         RetriveFeedback();
          
          
      }
@@ -283,7 +397,10 @@ public class SystemDatabase implements DatabaseControl{
      {
               
          SaveUsers();
+         
          SaveAccountRequests();
+         
+         SaveFeedback();
          
      }
 

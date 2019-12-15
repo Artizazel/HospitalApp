@@ -5,6 +5,7 @@
  */
 package View;
 
+import View.AdminView.AdminHomepage;
 import hospitalapp.SystemDatabase;
 import hospitalapp.UserFactory;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -34,7 +35,6 @@ public class CreateAccount extends javax.swing.JFrame {
         fieldFirstName = new javax.swing.JTextField();
         fieldAddress = new javax.swing.JTextField();
         fieldSurname = new javax.swing.JTextField();
-        btnCreate = new javax.swing.JButton();
         lblDoctor5 = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JTextField();
         lblDoctor6 = new javax.swing.JLabel();
@@ -47,6 +47,8 @@ public class CreateAccount extends javax.swing.JFrame {
         fieldGender = new javax.swing.JTextField();
         fieldUserID = new javax.swing.JTextField();
         lblDoctor4 = new javax.swing.JLabel();
+        btnCreate1 = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,13 +70,6 @@ public class CreateAccount extends javax.swing.JFrame {
         fieldSurname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldSurnameActionPerformed(evt);
-            }
-        });
-
-        btnCreate.setText("Create Account");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
             }
         });
 
@@ -122,6 +117,20 @@ public class CreateAccount extends javax.swing.JFrame {
 
         lblDoctor4.setText("User ID");
 
+        btnCreate1.setText("Create Account");
+        btnCreate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreate1ActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,21 +138,12 @@ public class CreateAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(lblDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(181, 181, 181)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 188, Short.MAX_VALUE))
+                        .addGap(68, 68, 68)
+                        .addComponent(lblDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 521, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDoctor5)
-                                .addGap(34, 34, 34)
-                                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
@@ -161,7 +161,13 @@ public class CreateAccount extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(lblDoctor4)
                                     .addGap(34, 34, 34)
-                                    .addComponent(fieldUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(fieldUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblDoctor5)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,13 +176,18 @@ public class CreateAccount extends javax.swing.JFrame {
                                     .addComponent(fieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblDoctor6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(223, 223, 223)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(lblDoctor7)))))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(343, Short.MAX_VALUE)
+                    .addComponent(btnCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(63, 63, 63)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +208,7 @@ public class CreateAccount extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDoctor6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84))
+                        .addGap(193, 193, 193))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,9 +225,14 @@ public class CreateAccount extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDoctor5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)))
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(271, Short.MAX_VALUE)
+                    .addComponent(btnCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(31, 31, 31)))
         );
 
         pack();
@@ -234,56 +250,6 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldSurnameActionPerformed
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        // TODO add your handling code here:
-
-        boolean IDexists = false;
-        
-        for (int i = 0; i < SystemDatabase.users.size(); i++) 
-        {
-            if(fieldUserID.getText().equals(SystemDatabase.users.get(i).getUserID()))
-            {
-            IDexists = true;
-            break;
-            }
-        }
-        
-        if(IDexists == true){
-            
-            showMessageDialog(null, "User ID Already Exists");
-            
-        }
-        else
-        {
-        if(SystemDatabase.users.size() == 0)
-        {
-            UserFactory.createUser("A0000", fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());            
-        }
-        else if (fieldUserID.getText().charAt(0) == 'P')
-        {
-            
-            UserFactory.createUser(fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());
-            
-        }
-        else
-        {
-            
-            showMessageDialog(null, "Invalid ID");
-        
-        }
-        
-        
-        
-        }
-        
-        IDexists = false;
-        
-        
-        
-        
-
-    }//GEN-LAST:event_btnCreateActionPerformed
-
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldPasswordActionPerformed
@@ -299,6 +265,18 @@ public class CreateAccount extends javax.swing.JFrame {
     private void fieldUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUserIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUserIDActionPerformed
+
+    private void btnCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreate1ActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+
+        new AdminHomepage().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,7 +319,8 @@ public class CreateAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCreate1;
     private javax.swing.JTextField fieldAddress;
     private javax.swing.JTextField fieldAge;
     private javax.swing.JTextField fieldFirstName;
