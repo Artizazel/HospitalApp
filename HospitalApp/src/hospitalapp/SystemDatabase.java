@@ -182,7 +182,7 @@ public class SystemDatabase implements DatabaseControl{
              feedbackFields.put("docID", doctorFeedback.get(i).getDoctorID());
              feedbackFields.put("rating", doctorFeedback.get(i).getRating());
              feedbackFields.put("notes", doctorFeedback.get(i).getNotes());
-             feedbackFields.put("adminApproved", doctorFeedback.get(i).getAdminApproved());
+             feedbackFields.put("status", doctorFeedback.get(i).getStatus());
              
              JSONFeedback.add(i, feedbackFields);
              
@@ -229,7 +229,6 @@ public class SystemDatabase implements DatabaseControl{
                  
                  for (int i = 0; i < JSONFeedback.size(); i++) {
                      
-                     System.out.println("Feedback retrived");
                      
                      JSONObject feedbackFields = (JSONObject) JSONFeedback.get(i);
                      
@@ -237,13 +236,11 @@ public class SystemDatabase implements DatabaseControl{
                      String DoctorID = (String) feedbackFields.get("docID");
                      String rating = (String) feedbackFields.get("rating");
                      String notes = (String) feedbackFields.get("notes");
-                     boolean adminApproved = (boolean) feedbackFields.get("adminApproved");
-                     
-                         
+                     String status = (String) feedbackFields.get("status");
                 
                      
                      
-                    DoctorFeedback doctorFeedbackObj = new DoctorFeedback(DoctorID, rating, notes, adminApproved);
+                    DoctorFeedback doctorFeedbackObj = new DoctorFeedback(DoctorID, rating, notes, status);
                      
                     doctorFeedback.add(doctorFeedbackObj);
                     

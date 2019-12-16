@@ -14,16 +14,16 @@ public class DoctorFeedback {
     private String DoctorID;
     private String rating;
     private String notes;
-    private boolean adminApproved;
+    private String Status;
    
 
     
     
-    public DoctorFeedback(String DoctorID, String rating, String notes, boolean adminApproved) {
+    public DoctorFeedback(String DoctorID, String rating, String notes, String Status) {
         this.DoctorID = DoctorID;
         this.rating = rating;
         this.notes = notes;
-        this.adminApproved = adminApproved;
+        this.Status = Status;
     }
 
     
@@ -54,12 +54,12 @@ public class DoctorFeedback {
         this.notes = notes;
     }
 
-    public boolean getAdminApproved() {
-        return adminApproved;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setAdminApproved(boolean adminApproved) {
-        this.adminApproved = adminApproved;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
     
     

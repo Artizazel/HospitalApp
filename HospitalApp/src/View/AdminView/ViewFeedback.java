@@ -25,7 +25,7 @@ public class ViewFeedback extends javax.swing.JFrame {
         
         for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) 
         {
-            if(SystemDatabase.doctorFeedback.get(i).getAdminApproved() == false){
+            if(SystemDatabase.doctorFeedback.get(i).getStatus().equals("unapproved")){
             DLM.addElement("Doctor ID: " + doctorFeedback.get(i).getDoctorID() + " Rating: " + doctorFeedback.get(i).getRating() + " Notes: " + doctorFeedback.get(i).getNotes());
             }
             }
@@ -51,11 +51,6 @@ public class ViewFeedback extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lstFeedback.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(lstFeedback);
 
         jLabel1.setText("-View Feedback-");

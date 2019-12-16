@@ -1,1 +1,1 @@
-[{"patientID":"P0001","docID":"D0006","dates":"bing bong","status":"pending"},{"patientID":"P0002","docID":"D0005","dates":"25th - 27th","status":"pending"},{"patientID":"P0002","docID":"D0006","dates":"17th of April","status":"pending"}]
+[{"patientID":"P0001","docID":"D0006","dates":"79st","status":"verified"},{"patientID":"P0002","docID":"D0006","dates":"52th","status":"verified"}]

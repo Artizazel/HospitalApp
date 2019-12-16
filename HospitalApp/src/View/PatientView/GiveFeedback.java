@@ -174,7 +174,7 @@ public class GiveFeedback extends javax.swing.JFrame {
     private void btnSendFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendFeedbackActionPerformed
         // TODO add your handling code here:
 
-      DoctorFeedback feedback = new DoctorFeedback(txtDocID.getText(), String.valueOf(sldRating.getValue()), txtNotes.getText(), false);
+      DoctorFeedback feedback = new DoctorFeedback(txtDocID.getText(), String.valueOf(sldRating.getValue()), txtNotes.getText(), "unapproved");
       
       doctorFeedback.add(feedback);
 

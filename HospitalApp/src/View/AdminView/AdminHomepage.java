@@ -5,6 +5,7 @@
  */
 package View.AdminView;
 
+import View.StartScreen;
 import hospitalapp.SystemDatabase;
 
 /**
@@ -38,6 +39,7 @@ public class AdminHomepage extends javax.swing.JFrame {
         btnRemoveAccounts = new javax.swing.JButton();
         btnCreateFeedback = new javax.swing.JButton();
         btnAddAccounts = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +75,13 @@ public class AdminHomepage extends javax.swing.JFrame {
             }
         });
 
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,6 +96,10 @@ public class AdminHomepage extends javax.swing.JFrame {
                         .addComponent(btnAddAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblWelcomeMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(btnLogOut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +114,9 @@ public class AdminHomepage extends javax.swing.JFrame {
                 .addComponent(btnViewRatings, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +154,14 @@ public class AdminHomepage extends javax.swing.JFrame {
                     this.dispose();
         
     }//GEN-LAST:event_btnCreateFeedbackActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+
+        new StartScreen().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +203,7 @@ public class AdminHomepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddAccounts;
     private javax.swing.JButton btnCreateFeedback;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnRemoveAccounts;
     private javax.swing.JButton btnViewRatings;
     private javax.swing.JLabel lblWelcomeMsg;

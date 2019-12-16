@@ -26,9 +26,9 @@ public class CreateFeedback extends javax.swing.JFrame {
         
         
         for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) {
-            if(SystemDatabase.doctorFeedback.get(i).getAdminApproved() == false)
+            if(SystemDatabase.doctorFeedback.get(i).getStatus().equals("unapproved"))
             {
-            combFeedbackSelect.addItem(SystemDatabase.doctorFeedback.get(i).getDoctorID() + "  Rating[" +SystemDatabase.doctorFeedback.get(i).getRating() + "]  " + SystemDatabase.doctorFeedback.get(i).getNotes().substring(0, 10));
+            combFeedbackSelect.addItem(SystemDatabase.doctorFeedback.get(i).getDoctorID() + "  Rating[" +SystemDatabase.doctorFeedback.get(i).getRating() + "]  " + SystemDatabase.doctorFeedback.get(i).getNotes());
             
             tempFeedback.add(SystemDatabase.doctorFeedback.get(i));
             }
@@ -167,7 +167,7 @@ public class CreateFeedback extends javax.swing.JFrame {
          
         
          tempFeedback.get(combFeedbackSelect.getSelectedIndex()).setNotes(txtFeedbackNotes.getText());
-         tempFeedback.get(combFeedbackSelect.getSelectedIndex()).setAdminApproved(true);
+         tempFeedback.get(combFeedbackSelect.getSelectedIndex()).setStatus("approved");
         
          
         SystemDatabase.SaveFeedback();

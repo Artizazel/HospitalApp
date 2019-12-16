@@ -72,6 +72,12 @@ public class RequestAppointment extends javax.swing.JFrame {
             }
         });
 
+        combDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combDocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,6 +156,10 @@ public class RequestAppointment extends javax.swing.JFrame {
         new PatientHomepage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancel3ActionPerformed
+
+    private void combDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combDocActionPerformed
 
     /**
      * @param args the command line arguments
