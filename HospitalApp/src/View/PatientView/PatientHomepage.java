@@ -8,11 +8,18 @@ package View.PatientView;
 import View.AdminView.AdminHomepage;
 import View.StartScreen;
 import hospitalapp.SystemDatabase;
+import static hospitalapp.SystemDatabase.appointments;
+import static hospitalapp.SystemDatabase.prescriptions;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
  * @author sbloxham2
  */
+
+
+
+
 public class PatientHomepage extends javax.swing.JFrame {
 
     /**
@@ -156,6 +163,52 @@ public class PatientHomepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public static void checkNotifs(){
+        
+        boolean newAppointment = false;
+        boolean newPrescription = false;
+        
+        
+        
+        for (int i = SystemDatabase.prescriptions.size() -1; i >= 0; i--) 
+        {
+            
+            if(prescriptions.get(i).getPatientID().equals(SystemDatabase.getCurrentUserID()) && prescriptions.get(i).getRecieved() == false)
+            {
+                
+                newPrescription = true;
+                
+            }
+            }
+        
+        
+        for (int i = SystemDatabase.appointments.size() -1; i >= 0; i--) 
+        {
+            
+            if(appointments.get(i).getPatientID().equals(SystemDatabase.getCurrentUserID()) && appointments.get(i).getStatus().equals("verified"))
+            {
+                
+                newAppointment = true;
+                
+            }
+            }
+        
+        
+         if(newAppointment == true)
+        {
+            showMessageDialog(null, "You Have an Upcoming Appointment [Go To View Appointments for Details]");
+        }
+         
+          if(newPrescription == true)
+        {
+            showMessageDialog(null, "You Have Unregistered Prescriptions, go to a secretary to recieve your medicine [View the Prescription in the 'View Prescription' tab]");
+        }
+        
+        
+    }
+    
+    
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
         

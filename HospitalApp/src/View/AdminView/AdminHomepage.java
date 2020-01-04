@@ -7,6 +7,8 @@ package View.AdminView;
 
 import View.StartScreen;
 import hospitalapp.SystemDatabase;
+import static hospitalapp.SystemDatabase.doctorFeedback;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -17,12 +19,39 @@ public class AdminHomepage extends javax.swing.JFrame {
     /**
      * Creates new form AdminHomepage
      */
+    
+    static boolean newFeedback = false;
+    
     public AdminHomepage() {
         initComponents();
         lblWelcomeMsg.setText("Welcome back " + SystemDatabase.findUser(SystemDatabase.getCurrentUserID()).getFirstName());
+    
+    
+        
+        
+        
     }
 
     
+    
+    public static void checkNotifs(){
+        
+        for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) 
+        {
+            if(SystemDatabase.doctorFeedback.get(i).getStatus().equals("unapproved"))
+            {
+                newFeedback = true;
+            }
+            
+        }
+        
+        
+        if(newFeedback == true)
+        {
+            showMessageDialog(null, "New Feedback from Patients [Go To 'Create Feedback' to send it on]");
+        }
+        
+    }
     
     
     /**
@@ -87,6 +116,10 @@ public class AdminHomepage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnLogOut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -96,17 +129,13 @@ public class AdminHomepage extends javax.swing.JFrame {
                         .addComponent(btnAddAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblWelcomeMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnLogOut)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcomeMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addComponent(btnAddAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(btnRemoveAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)

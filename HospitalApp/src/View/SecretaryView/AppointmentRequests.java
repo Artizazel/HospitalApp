@@ -42,7 +42,7 @@ public class AppointmentRequests extends javax.swing.JFrame {
             
             if(SystemDatabase.appointments.get(i).getStatus().equals("pending"))
             {
-                DLM.addElement("Patient: " + appointments.get(i).getPatientID() + "  Doctor: " + appointments.get(i).getDocId() + "  Dates:" + appointments.get(i).getDates());
+                DLM.addElement("Patient: " + appointments.get(i).getPatientID() + "  Preferred Doctor: " + appointments.get(i).getDocId() + "  Preferred Dates:" + appointments.get(i).getDates());
                 
             tempAppointment.add(SystemDatabase.appointments.get(i));
             }
@@ -198,7 +198,7 @@ public class AppointmentRequests extends javax.swing.JFrame {
             
             if(SystemDatabase.appointments.get(i).getStatus().equals("pending"))
             {
-                DLM.addElement("Patient: " + appointments.get(i).getPatientID() + "  Doctor: " + appointments.get(i).getDocId() + "  Dates:" + appointments.get(i).getDates());
+                DLM.addElement("Patient: " + appointments.get(i).getPatientID() + "  Requested Doctor: " + appointments.get(i).getDocId() + "  Dates:" + appointments.get(i).getDates());
                 
             tempAppointment.add(SystemDatabase.appointments.get(i));
             }

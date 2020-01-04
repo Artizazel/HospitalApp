@@ -7,6 +7,7 @@ package View.SecretaryView;
 
 import hospitalapp.SystemDatabase;
 import static hospitalapp.SystemDatabase.medicines;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -28,6 +29,20 @@ public class OrderMedicine extends javax.swing.JFrame {
             
         }
         
+        DefaultListModel DLM = new DefaultListModel();
+        
+        for (int i = 0; i < SystemDatabase.medicines.size(); i++) 
+        {
+            
+            DLM.addElement(medicines.get(i).getName() + "["+medicines.get(i).getStock()+"]");
+            
+            }
+        
+        
+        lstMedicine.setModel(DLM);
+        
+        
+        
     }
 
     /**
@@ -47,6 +62,8 @@ public class OrderMedicine extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnBack1 = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstMedicine = new javax.swing.JList<>();
 
         btnBack.setText("Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +94,8 @@ public class OrderMedicine extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(lstMedicine);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,7 +121,10 @@ public class OrderMedicine extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
-                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,7 +143,9 @@ public class OrderMedicine extends javax.swing.JFrame {
                             .addComponent(combMeds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAmount)))
                     .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -146,7 +170,7 @@ public class OrderMedicine extends javax.swing.JFrame {
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
         
-        medicines.get(combMeds.getSelectedIndex()).setStock(Integer.parseInt(txtAmount.getText()));
+        medicines.get(combMeds.getSelectedIndex()).setStock(Long.parseLong(txtAmount.getText()));
         
         SystemDatabase.SaveMedicines();
         
@@ -199,6 +223,8 @@ public class OrderMedicine extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lstMedicine;
     private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }

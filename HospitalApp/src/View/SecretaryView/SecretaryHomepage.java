@@ -7,6 +7,10 @@ package View.SecretaryView;
 
 import View.StartScreen;
 import hospitalapp.SystemDatabase;
+import static hospitalapp.SystemDatabase.accountRequests;
+import static hospitalapp.SystemDatabase.appointments;
+import static hospitalapp.SystemDatabase.deletionRequests;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -24,6 +28,69 @@ public class SecretaryHomepage extends javax.swing.JFrame {
         
     }
 
+    
+    
+    public static void checkNotifs(){
+        
+        boolean newAccounts = false;
+        boolean newTerminationReqs = false;
+        boolean newAppointmentReqs = false;
+        boolean outOfMeds = false;
+        
+        
+        
+        for (int i = 0; i < SystemDatabase.accountRequests.size(); i++) 
+        {
+            newAccounts = true;
+        }
+        
+        for (int i = 0; i < SystemDatabase.deletionRequests.size(); i++) 
+        {
+                 newTerminationReqs = true;   
+        }
+        
+        for (int i = 0; i < SystemDatabase.appointments.size(); i++) 
+        {
+            
+            if(SystemDatabase.appointments.get(i).getStatus().equals("pending"))
+            {
+                newAppointmentReqs = true;
+            }
+            }
+        
+        
+        for (int i = 0; i < SystemDatabase.medicines.size(); i++) 
+        {
+            
+            if(SystemDatabase.medicines.get(i).getStock() < 2)
+            {
+                outOfMeds = true;
+            }
+            }
+        
+        
+        if(newAccounts == true)
+        {
+            showMessageDialog(null, "There are new patient account requests [Go to 'Approve Accounts' to verify them]");
+        }
+        
+        if(newTerminationReqs == true)
+        {
+            showMessageDialog(null, "There are new account termination requests [Go to 'Approve Removal' to remove the accounts]");
+        }
+        
+        if(newAppointmentReqs == true)
+        {
+            showMessageDialog(null, "There are new appointment requests [Go to 'Appointment Requests' to organise them]");
+        }
+        
+        if(outOfMeds == true)
+        {
+            showMessageDialog(null, "The current stock of medicine is running low [Go to 'Order Medicine' to order more]");
+        }
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +107,7 @@ public class SecretaryHomepage extends javax.swing.JFrame {
         btnApproveAccounts = new javax.swing.JButton();
         lblWelcomeMsg = new javax.swing.JLabel();
         btnOrderMeds = new javax.swing.JButton();
+        btnGiveMeds = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +156,13 @@ public class SecretaryHomepage extends javax.swing.JFrame {
             }
         });
 
+        btnGiveMeds.setText("Give Medicines");
+        btnGiveMeds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGiveMedsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,17 +178,20 @@ public class SecretaryHomepage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAppointmentRequests, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnApproveAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemovePatients, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGiveMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnApproveAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemovePatients, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(btnAppointmentRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnRemoval, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOrderMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(21, 21, 21))
+                            .addComponent(btnOrderMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +203,9 @@ public class SecretaryHomepage extends javax.swing.JFrame {
                     .addComponent(btnApproveAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemoval, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(btnAppointmentRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAppointmentRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGiveMeds, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemovePatients, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,6 +268,15 @@ public class SecretaryHomepage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnOrderMedsActionPerformed
 
+    private void btnGiveMedsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiveMedsActionPerformed
+        // TODO add your handling code here:
+        
+         new GiveMedicine().setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_btnGiveMedsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +315,7 @@ public class SecretaryHomepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointmentRequests;
     private javax.swing.JButton btnApproveAccounts;
+    private javax.swing.JButton btnGiveMeds;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnOrderMeds;
     private javax.swing.JButton btnRemoval;

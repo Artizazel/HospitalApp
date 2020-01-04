@@ -13,9 +13,9 @@ public class Medicine {
     
     private String name;
     
-    private int stock;
+    private long stock;
 
-    public Medicine(String name, int stock) {
+    public Medicine(String name, long stock) {
         this.name = name;
         this.stock = stock;
     }
@@ -28,11 +28,11 @@ public class Medicine {
         this.name = name;
     }
 
-    public int getStock() {
+    public long getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(long stock) {
         this.stock = stock;
     }
     

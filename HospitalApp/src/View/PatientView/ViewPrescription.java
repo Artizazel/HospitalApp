@@ -5,6 +5,14 @@
  */
 package View.PatientView;
 
+import PatientPackage.Patient;
+import SystemPackage.Prescription;
+import hospitalapp.IUser;
+import hospitalapp.SystemDatabase;
+import static hospitalapp.SystemDatabase.prescriptions;
+import javax.swing.DefaultListModel;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  *
  * @author sbloxham2
@@ -14,8 +22,54 @@ public class ViewPrescription extends javax.swing.JFrame {
     /**
      * Creates new form ViewPrescription
      */
+    
+    Prescription currentPrescription;
+    boolean presFound = false;
+    
     public ViewPrescription() {
         initComponents();
+        
+        
+        
+        for (int i = SystemDatabase.prescriptions.size() -1; i >= 0; i--) 
+        {
+            
+            if(prescriptions.get(i).getPatientID().equals(SystemDatabase.getCurrentUserID()) && prescriptions.get(i).getRecieved() == false)
+            {
+                currentPrescription = prescriptions.get(i);
+                presFound = true;
+                break;
+            }
+            }
+        
+        if(presFound == true){
+        IUser currentPatient = SystemDatabase.findUser(SystemDatabase.getCurrentUserID());
+        
+        IUser doctor = SystemDatabase.findUser(currentPrescription.getDocID());
+        
+        txtPatientInfo.setText("Name: "+currentPatient.getFirstName()+" "+currentPatient.getSurname() + "\nAddress: "+currentPatient.getAddress() + "\nSex: "+currentPatient.getGender() +"\nAge: "+currentPatient.getAge());
+        
+        txtDocInfo.setText("Name: "+doctor.getFirstName()+" "+doctor.getSurname() + "\nAddress: "+doctor.getAddress());
+        
+        txtNotes.setText(currentPrescription.getDoctorNotes());
+        
+        DefaultListModel DLM = new DefaultListModel();
+        
+        DLM.addElement("Medicine: " + currentPrescription.getMedName());
+        
+        DLM.addElement("Quantity: " + currentPrescription.getQuantity());
+        
+        DLM.addElement("Dosage: " + currentPrescription.getDosage());
+        
+        
+        lstMed.setModel(DLM);
+        }
+        else
+        {
+            showMessageDialog(null, "You Have No Current Prescriptions");
+        
+        }
+            
     }
 
     /**
@@ -92,6 +146,10 @@ public class ViewPrescription extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(217, 217, 217))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,10 +175,6 @@ public class ViewPrescription extends javax.swing.JFrame {
                                     .addGap(13, 13, 13)
                                     .addComponent(jLabel3))))))
                 .addContainerGap(60, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,10 +193,10 @@ public class ViewPrescription extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))

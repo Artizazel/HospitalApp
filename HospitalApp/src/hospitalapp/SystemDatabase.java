@@ -276,7 +276,7 @@ public class SystemDatabase implements DatabaseControl{
          
          
          
-         for (int i = 0; i < doctorFeedback.size(); i++) {
+         for (int i = 0; i < prescriptions.size(); i++) {
              
              JSONObject presFields = new JSONObject();
              
@@ -346,7 +346,7 @@ public class SystemDatabase implements DatabaseControl{
                      String patientID = (String) presFields.get("patientID");
                      String doctorNotes = (String) presFields.get("doctorNotes");
                      String medName = (String) presFields.get("medName");
-                     int quantity = (int) presFields.get("quantity");
+                     Long quantity = (Long) presFields.get("quantity");
                      String dosage = (String) presFields.get("dosage");
                      boolean recieved = (boolean) presFields.get("recieved");
                      
@@ -729,7 +729,7 @@ public class SystemDatabase implements DatabaseControl{
              medFields.put("stock", medicines.get(i).getStock());
              
              
-             JSONMeds.add(i, medicines);
+             JSONMeds.add(i, medFields);
              
          }
          
@@ -774,7 +774,7 @@ public class SystemDatabase implements DatabaseControl{
                      
                      
                      String name = (String) medFields.get("name");
-                     int stock = (int) medFields.get("stock");
+                     long stock = (long) medFields.get("stock");
                    
                          
                 
@@ -918,6 +918,21 @@ public class SystemDatabase implements DatabaseControl{
          
          return null;
      }
+     
+     
+     public static Medicine findMed(String medName)
+     {
+         
+         for (int i = 0; i < medicines.size(); i++) {
+             if(medicines.get(i).getName().equals(medName))
+             {
+                 return medicines.get(i);                 
+             }
+         }
+         
+         return null;
+     }
+     
 
     public static String getCurrentUserID() {
         return currentUserID;

@@ -1,1 +1,1 @@
-[]
+[{"name":"Paracetamol","stock":5},{"name":"Ibuprofen","stock":12},{"name":"Health Potion","stock":3},{"name":"Antibiotics","stock":17}]

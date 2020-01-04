@@ -24,13 +24,16 @@ public class ViewAppointment extends javax.swing.JFrame {
         
         IUser currentPatient = SystemDatabase.findUser(SystemDatabase.getCurrentUserID());
         
-        for (int i = 0; i < appointments.size(); i++) {
+        for (int i = appointments.size()-1; i >= 0; i--) {
             
-            if(SystemDatabase.getCurrentUserID().equals(appointments.get(i).getPatientID()) &&  (appointments.get(i).getStatus().equals("pending") || appointments.get(i).getStatus().equals("verified")))
+            if(appointments.get(i).getPatientID().equals(SystemDatabase.getCurrentUserID()))
             {
+            
                 txtAppointment.setText("Doctor: " + appointments.get(i).getDocId() + "\nDates:" + appointments.get(i).getDates() + "\nStatus: " + appointments.get(i).getStatus());
+                
                 break;
             }
+            
         }
         
          
@@ -56,11 +59,12 @@ public class ViewAppointment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtAppointment.setEditable(false);
         txtAppointment.setColumns(20);
         txtAppointment.setRows(5);
         jScrollPane1.setViewportView(txtAppointment);
 
-        jLabel1.setText("-Appointment-");
+        jLabel1.setText("-Current Appointment-");
 
         btnCancel3.setText("Go Back");
         btnCancel3.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +87,7 @@ public class ViewAppointment extends javax.swing.JFrame {
                                 .addGap(33, 33, 33)
                                 .addComponent(btnCancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(144, 144, 144)
                         .addComponent(jLabel1)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );

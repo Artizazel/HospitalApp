@@ -15,11 +15,11 @@ public class Prescription {
     private String patientID;
     private String doctorNotes;
     private String medName;
-    private int quantity;
+    private Long quantity;
     private String dosage;
     private boolean recieved;
 
-    public Prescription(String docID, String patientID, String doctorNotes, String medName, int quantity, String dosage, boolean recieved) {
+    public Prescription(String docID, String patientID, String doctorNotes, String medName, Long quantity, String dosage, boolean recieved) {
         this.docID = docID;
         this.patientID = patientID;
         this.doctorNotes = doctorNotes;
@@ -61,11 +61,11 @@ public class Prescription {
         this.medName = medName;
     }
 
-    public int getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

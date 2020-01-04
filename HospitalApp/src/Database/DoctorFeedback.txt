@@ -1,1 +1,1 @@
-[{"notes":"Epic","docID":"D0005","rating":"2","status":"approved"},{"notes":"swish","docID":"D0005","rating":"4","status":"approved"}]
+[{"notes":"The patient was please with the appointment","docID":"D0001","rating":"4","status":"approved"},{"notes":"Not as helpful this time","docID":"D0001","rating":"2","status":"unapproved"}]

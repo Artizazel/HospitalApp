@@ -22,6 +22,13 @@ public class GiveFeedback extends javax.swing.JFrame {
         initComponents();
         
         
+        for (int i = 0; i < SystemDatabase.users.size(); i++) {
+            if(SystemDatabase.users.get(i).getUserID().charAt(0) == 'D')
+            {
+            combDoc.addItem(SystemDatabase.users.get(i).getUserID());
+            }
+        }
+        
         sldRating.getValue();
     }
 
@@ -36,7 +43,6 @@ public class GiveFeedback extends javax.swing.JFrame {
 
         btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtDocID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         sldRating = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,6 +53,7 @@ public class GiveFeedback extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnSendFeedback = new javax.swing.JButton();
         btnCancel2 = new javax.swing.JButton();
+        combDoc = new javax.swing.JComboBox<>();
 
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -58,8 +65,6 @@ public class GiveFeedback extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("-Feedback Form-");
-
-        txtDocID.setText("Enter Doctor ID");
 
         jLabel2.setText("Doctor ID");
 
@@ -92,6 +97,12 @@ public class GiveFeedback extends javax.swing.JFrame {
             }
         });
 
+        combDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combDocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,9 +112,9 @@ public class GiveFeedback extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDocID, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -139,11 +150,11 @@ public class GiveFeedback extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDocID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
                 .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(combDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -174,7 +185,7 @@ public class GiveFeedback extends javax.swing.JFrame {
     private void btnSendFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendFeedbackActionPerformed
         // TODO add your handling code here:
 
-      DoctorFeedback feedback = new DoctorFeedback(txtDocID.getText(), String.valueOf(sldRating.getValue()), txtNotes.getText(), "unapproved");
+      DoctorFeedback feedback = new DoctorFeedback(combDoc.getSelectedItem().toString(), String.valueOf(sldRating.getValue()), txtNotes.getText(), "unapproved");
       
       doctorFeedback.add(feedback);
 
@@ -192,6 +203,10 @@ public class GiveFeedback extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnCancel2ActionPerformed
+
+    private void combDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combDocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +247,7 @@ public class GiveFeedback extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancel2;
     private javax.swing.JButton btnSendFeedback;
+    private javax.swing.JComboBox<String> combDoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -240,7 +256,6 @@ public class GiveFeedback extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider sldRating;
-    private javax.swing.JTextField txtDocID;
     private javax.swing.JTextArea txtNotes;
     // End of variables declaration//GEN-END:variables
 }

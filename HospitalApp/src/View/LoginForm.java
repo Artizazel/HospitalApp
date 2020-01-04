@@ -6,6 +6,7 @@
 package View;
 
 import View.AdminView.AdminHomepage;
+import View.DoctorView.DoctorHomepage;
 import View.PatientView.PatientHomepage;
 import View.SecretaryView.SecretaryHomepage;
 import hospitalapp.SystemDatabase;
@@ -38,6 +39,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblWrongInput = new javax.swing.JLabel();
+        btnLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +68,13 @@ public class LoginForm extends javax.swing.JFrame {
 
         lblWrongInput.setForeground(new java.awt.Color(255, 0, 51));
 
+        btnLogOut.setText("Go Back");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +91,9 @@ public class LoginForm extends javax.swing.JFrame {
                             .addGap(149, 149, 149)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
+                        .addGap(21, 21, 21)
+                        .addComponent(btnLogOut)
+                        .addGap(95, 95, 95)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(239, 239, 239)
@@ -104,9 +115,15 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
 
         pack();
@@ -137,23 +154,31 @@ public class LoginForm extends javax.swing.JFrame {
                 if(userID.charAt(0) == 'A')
                 {
                     SystemDatabase.setCurrentUserID(userID);
+                    AdminHomepage.checkNotifs();
                     new AdminHomepage().setVisible(true);
                     this.dispose();              
                 }
                 if(userID.charAt(0) == 'P')
                 {
                     SystemDatabase.setCurrentUserID(userID);
+                    PatientHomepage.checkNotifs();
                     new PatientHomepage().setVisible(true);
                     this.dispose();                
                 }
                 if(userID.charAt(0) == 'S')
                 {
                            SystemDatabase.setCurrentUserID(userID);
+                           SecretaryHomepage.checkNotifs();
                     new SecretaryHomepage().setVisible(true);
                     this.dispose();          
                 }
                 if(userID.charAt(0) == 'D')
-                {}
+                {
+                     SystemDatabase.setCurrentUserID(userID);
+                     DoctorHomepage.checknotifs();
+                    new DoctorHomepage().setVisible(true);
+                    this.dispose();                 
+                }
                 
                 }
                 
@@ -178,6 +203,13 @@ public class LoginForm extends javax.swing.JFrame {
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+
+        new StartScreen().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +247,7 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
