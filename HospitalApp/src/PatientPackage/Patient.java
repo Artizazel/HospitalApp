@@ -39,7 +39,7 @@ public class Patient implements IUser{
     
     
     
-    
+    @Override
     public String getPassword() {
         return password;
     }
@@ -49,7 +49,7 @@ public class Patient implements IUser{
     }
     
     
-    
+    @Override
     public String getUserID() {
         return userID;
     }
@@ -57,7 +57,7 @@ public class Patient implements IUser{
     public void setUserID(String userID) {
         this.userID = userID;
     }
-
+@Override
     public String getFirstName() {
         return firstName;
     }
@@ -65,7 +65,7 @@ public class Patient implements IUser{
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+@Override
     public String getSurname() {
         return surname;
     }
@@ -73,7 +73,7 @@ public class Patient implements IUser{
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
+@Override
     public String getAddress() {
         return address;
     }
@@ -81,7 +81,7 @@ public class Patient implements IUser{
     public void setAddress(String address) {
         this.address = address;
     }
-
+@Override
     public String getGender() {
         return gender;
     }
@@ -89,7 +89,7 @@ public class Patient implements IUser{
     public void setGender(String gender) {
         this.gender = gender;
     }
-
+@Override
     public String getAge() {
         return age;
     }

@@ -29,7 +29,7 @@ public class Secretary implements IUser{
         this.password = password;
     }
     
-    
+    @Override
     public String getAge() {
         return null;
     }
@@ -37,7 +37,7 @@ public class Secretary implements IUser{
     public void setAge(String age) {
         this.age = age;
     }
-
+@Override
     public String getGender() {
         return null;
     }
@@ -47,7 +47,7 @@ public class Secretary implements IUser{
     }
     
     
-    
+    @Override
     public String getPassword() {
         return password;
     }
@@ -56,7 +56,7 @@ public class Secretary implements IUser{
         this.password = password;
     }
     
-    
+    @Override
     public String getUserID() {
         return userID;
     }
@@ -64,7 +64,8 @@ public class Secretary implements IUser{
     public void setUserID(String userID) {
         this.userID = userID;
     }
-
+    
+@Override
     public String getFirstName() {
         return firstName;
     }
@@ -72,7 +73,7 @@ public class Secretary implements IUser{
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+@Override
     public String getSurname() {
         return surname;
     }
@@ -81,7 +82,7 @@ public class Secretary implements IUser{
         this.surname = surname;
     }
     
-
+@Override
     public String getAddress() {
         return address;
     }

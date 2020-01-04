@@ -271,7 +271,7 @@ public class CreateAccount extends javax.swing.JFrame {
         else
         {
             
-            AccountRequest patient = new AccountRequest(fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldAge.getText(), fieldGender.getText(), fieldPassword.getText());
+            AccountRequest patient = new AccountRequest(fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());
             
             SystemDatabase.accountRequests.add(patient);
             

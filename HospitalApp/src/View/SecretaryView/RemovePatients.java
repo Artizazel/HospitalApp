@@ -27,7 +27,8 @@ public class RemovePatients extends javax.swing.JFrame {
         
         for (int i = 0; i < SystemDatabase.users.size(); i++) 
         {
-            
+         
+            if(users.get(i).getUserID().charAt(0) == 'P')
             DLM.addElement(users.get(i).getUserID());
             
             }

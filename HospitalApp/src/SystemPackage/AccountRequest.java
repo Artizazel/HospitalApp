@@ -19,7 +19,7 @@ public class AccountRequest {
     private String password;
 
     
-    public AccountRequest(String firstName, String surname, String address, String age, String gender, String password) {
+    public AccountRequest(String firstName, String surname, String address, String password, String gender, String age) {
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;

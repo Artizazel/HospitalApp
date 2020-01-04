@@ -31,10 +31,14 @@ public class Admin implements IUser{
         this.password = password;
     }
 
+    
+    
+    @Override
     public String getPassword() {
         return password;
     }
 
+    
     public void setPassword(String password) {
         this.password = password;
     }
@@ -43,7 +47,7 @@ public class Admin implements IUser{
     
     
     
-    
+    @Override
      public String getAge() {
         return null;
     }
@@ -52,14 +56,17 @@ public class Admin implements IUser{
         this.age = age;
     }
 
+    @Override
     public String getGender() {
         return null;
     }
-
+    
+    
     public void setGender(String gender) {
         this.gender = gender;
     }
     
+    @Override
     public String getUserID() {
         return userID;
     }
@@ -68,22 +75,27 @@ public class Admin implements IUser{
         this.userID = userID;
     }
 
+    @Override
     public String getFirstName() {
         return firstName;
     }
 
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    @Override
     public String getSurname() {
         return surname;
     }
 
+    
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
