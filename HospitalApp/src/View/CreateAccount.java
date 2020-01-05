@@ -267,6 +267,11 @@ public class CreateAccount extends javax.swing.JFrame {
         if(SystemDatabase.users.size() == 0)
         {
             UserFactory.createUser("A0000", fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), fieldGender.getText(), fieldAge.getText());            
+        
+            
+        new StartScreen().setVisible(true);
+        this.dispose();
+        
         }
         else
         {

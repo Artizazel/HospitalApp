@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author sbloxham2
  */
-public class SystemDatabaseIT {
+public class SystemDatabaseTest {
     
-    public SystemDatabaseIT() {
+    public SystemDatabaseTest() {
     }
     
     @BeforeAll

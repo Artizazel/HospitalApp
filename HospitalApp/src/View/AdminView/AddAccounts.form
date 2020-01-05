@@ -135,6 +135,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="New Doctor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radSec">
       <Properties>
@@ -219,7 +222,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="fieldUserID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter User ID"/>
+        <Property name="text" type="java.lang.String" value="Enter a 4 digit code"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldUserIDActionPerformed"/>

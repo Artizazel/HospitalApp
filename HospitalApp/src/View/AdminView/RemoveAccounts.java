@@ -20,6 +20,15 @@ public class RemoveAccounts extends javax.swing.JFrame {
      */
     public RemoveAccounts() {
         initComponents();
+        
+        for (int i = 0; i < SystemDatabase.users.size(); i++) {
+            if(SystemDatabase.users.get(i).getUserID().charAt(0) == 'D' || SystemDatabase.users.get(i).getUserID().charAt(0) == 'S')
+            {
+            combDoc.addItem(SystemDatabase.users.get(i).getUserID());
+            }
+        }
+        
+        
     }
 
     /**
@@ -34,12 +43,11 @@ public class RemoveAccounts extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDetails = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        txtUserIDField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
         btnCancel1 = new javax.swing.JButton();
+        combDoc = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,16 +57,7 @@ public class RemoveAccounts extends javax.swing.JFrame {
 
         jLabel1.setText("-Remove Accounts-");
 
-        txtUserIDField.setText("Enter User ID");
-
-        jLabel2.setText("Search For Account");
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Select Account");
 
         jLabel3.setText("Details");
 
@@ -73,6 +72,12 @@ public class RemoveAccounts extends javax.swing.JFrame {
         btnCancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancel1ActionPerformed(evt);
+            }
+        });
+
+        combDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combDocActionPerformed(evt);
             }
         });
 
@@ -91,15 +96,12 @@ public class RemoveAccounts extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(txtUserIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addComponent(combDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,17 +125,16 @@ public class RemoveAccounts extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUserIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(combDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(290, Short.MAX_VALUE)
@@ -147,17 +148,14 @@ public class RemoveAccounts extends javax.swing.JFrame {
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
         
-        if(txtUserIDField.getText().charAt(0) != 'A' && txtUserIDField.getText().charAt(0) != 'P')
-        {
-            SystemDatabase.RemoveUser(txtUserIDField.getText());
+        
+            SystemDatabase.RemoveUser(combDoc.getSelectedItem().toString());
 
             showMessageDialog(null, "User Removed");
             
         new AdminHomepage().setVisible(true);
         this.dispose();
-        }
-        else
-            showMessageDialog(null, "Can't remove admins or patients");
+        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancel1ActionPerformed
@@ -166,15 +164,14 @@ public class RemoveAccounts extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancel1ActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void combDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDocActionPerformed
         // TODO add your handling code here:
-        
-        IUser user = SystemDatabase.findUser(txtUserIDField.getText());
-        
+
+        IUser user = SystemDatabase.findUser(combDoc.getSelectedItem().toString());
+
         txtDetails.setText(user.getFirstName() + "\n" + user.getSurname() + "\n" + user.getAddress() + "\n" + user.getPassword());
-        
-        
-    }//GEN-LAST:event_btnSearchActionPerformed
+
+    }//GEN-LAST:event_combDocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,12 +211,11 @@ public class RemoveAccounts extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel1;
     private javax.swing.JButton btnRemove;
-    private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> combDoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtDetails;
-    private javax.swing.JTextField txtUserIDField;
     // End of variables declaration//GEN-END:variables
 }

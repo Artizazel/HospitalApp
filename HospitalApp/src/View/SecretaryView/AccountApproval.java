@@ -40,6 +40,8 @@ public class AccountApproval extends javax.swing.JFrame {
         
         lstAccounts.setModel(DLM);
         
+        lstAccounts.setSelectedIndex(0);
+        
     }
 
     /**
@@ -80,7 +82,7 @@ public class AccountApproval extends javax.swing.JFrame {
             }
         });
 
-        txtNewID.setText("New User ID");
+        txtNewID.setText("Enter a 4 digit code");
         txtNewID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNewIDActionPerformed(evt);
@@ -149,9 +151,10 @@ public class AccountApproval extends javax.swing.JFrame {
         boolean IDexists = false;
         
         
+        
         for (int i = 0; i < SystemDatabase.users.size(); i++) 
         {
-            if(txtNewID.getText().equals(SystemDatabase.users.get(i).getUserID()))
+            if(("P" + txtNewID.getText()).equals(SystemDatabase.users.get(i).getUserID()))
             {
             IDexists = true;
             break;
@@ -166,7 +169,7 @@ public class AccountApproval extends javax.swing.JFrame {
         else
         {
         
-        UserFactory.createUser(txtNewID.getText(), account.getFirstName(), account.getSurname(), account.getAddress(), account.getPassword(), account.getGender(),account.getAge());
+        UserFactory.createUser("P" + txtNewID.getText(), account.getFirstName(), account.getSurname(), account.getAddress(), account.getPassword(), account.getGender(),account.getAge());
         
         
         accountRequests.remove(lstAccounts.getSelectedIndex());

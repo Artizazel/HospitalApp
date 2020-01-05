@@ -20,6 +20,9 @@ public class AddAccounts extends javax.swing.JFrame {
      */
     public AddAccounts() {
         initComponents();
+        
+        
+        radDoc.setSelected(true);
     }
 
     /**
@@ -52,6 +55,11 @@ public class AddAccounts extends javax.swing.JFrame {
         jLabel1.setText("-Add Acounts-");
 
         radDoc.setText("New Doctor");
+        radDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radDocActionPerformed(evt);
+            }
+        });
 
         radSec.setText("New Secretary");
         radSec.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +120,7 @@ public class AddAccounts extends javax.swing.JFrame {
 
         lblDoctor1.setText("User ID");
 
-        fieldUserID.setText("Enter User ID");
+        fieldUserID.setText("Enter a 4 digit code");
         fieldUserID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldUserIDActionPerformed(evt);
@@ -225,13 +233,36 @@ public class AddAccounts extends javax.swing.JFrame {
         
         boolean IDexists = false;
         
+        
+        
+            
+            
+        String userId = fieldUserID.getText();
+        
+        int userID = Integer.parseInt(userId);
+        
+        
+        if(radDoc.isSelected() && !radSec.isSelected())
+        {
         for (int i = 0; i < SystemDatabase.users.size(); i++) 
         {
-            if(fieldUserID.getText().equals(SystemDatabase.users.get(i).getUserID()))
+            if(("D" + fieldUserID.getText()).equals(SystemDatabase.users.get(i).getUserID()))
             {
             IDexists = true;
             break;
             }
+        }
+        }
+        else if(radSec.isSelected() && !radDoc.isSelected())
+        {
+        for (int i = 0; i < SystemDatabase.users.size(); i++) 
+        {
+            if(("S" + fieldUserID.getText()).equals(SystemDatabase.users.get(i).getUserID()))
+            {
+            IDexists = true;
+            break;
+            }
+        }
         }
         
         if(IDexists == true){
@@ -239,43 +270,37 @@ public class AddAccounts extends javax.swing.JFrame {
             showMessageDialog(null, "User ID Already Exists");
             
         }
-        
+        else{
         
         if(radDoc.isSelected() && !radSec.isSelected())
         {
-            if(fieldUserID.getText().charAt(0) == 'D')
-            {
-              UserFactory.createUser(fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
+            
+              UserFactory.createUser("D" + fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
               showMessageDialog(null, "Account Created");
                new AdminHomepage().setVisible(true);
                     this.dispose();
-            }
-            else
-            {
-                showMessageDialog(null, "Invalid ID");
-            }
+            
         }
-        
         else if(!radDoc.isSelected() && radSec.isSelected())
         {
-            if(fieldUserID.getText().charAt(0) == 'S')
-            {
-            UserFactory.createUser(fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
+            
+            UserFactory.createUser("S" + fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
         showMessageDialog(null, "Account Created");
          new AdminHomepage().setVisible(true);
                     this.dispose();
-            }       
-                    else
-            {
-                showMessageDialog(null, "Invalid ID");
-            }
+             
+            
         }
+        }
+        
         
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void radSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radSecActionPerformed
         // TODO add your handling code here:
+        radDoc.setSelected(false);
+        
     }//GEN-LAST:event_radSecActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -289,6 +314,11 @@ public class AddAccounts extends javax.swing.JFrame {
     private void fieldUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUserIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUserIDActionPerformed
+
+    private void radDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radDocActionPerformed
+        // TODO add your handling code here:
+        radSec.setSelected(false);
+    }//GEN-LAST:event_radDocActionPerformed
 
     /**
      * @param args the command line arguments
