@@ -263,6 +263,8 @@ public class CreateAccount extends javax.swing.JFrame {
         else
         */
             
+        
+      
                 
         if(SystemDatabase.users.size() == 0)
         {
@@ -286,8 +288,6 @@ public class CreateAccount extends javax.swing.JFrame {
         this.dispose();
             
         }
-        
-        
         
         
         

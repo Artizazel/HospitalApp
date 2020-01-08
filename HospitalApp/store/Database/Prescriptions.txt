@@ -1,0 +1,1 @@
+[{"medName":"Health Potion","dosage":"Take two sips a day","quantity":1,"patientID":"P0010","docID":"D0001","doctorNotes":"Itchy face","recieved":true},{"medName":"Ibuprofen","dosage":"one a day","quantity":3,"patientID":"P0010","docID":"D0001","doctorNotes":"Headache","recieved":false}]

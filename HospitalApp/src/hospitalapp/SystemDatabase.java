@@ -39,13 +39,13 @@ public class SystemDatabase implements DatabaseControl{
     public static ArrayList<IUser> deletionRequests = new ArrayList<>();
     
     
-    static File usersFile = new File("src/Database/Users.txt");
-    static File accountRequestsFile = new File("src/Database/AccountRequests.txt");
-    static File doctorFeedbackFile = new File("src/Database/DoctorFeedback.txt");
-     static File appointmentsFile = new File("src/Database/Appointments.txt");
-    static File prescriptionsFile = new File("src/Database/Prescriptions.txt");
-    static File medicinesFile = new File("src/Database/Medicines.txt");
-    static File deletionRequestsFile = new File ("src/Database/DeletionRequests.txt");
+    static File usersFile = new File("Database/Users.txt");
+    static File accountRequestsFile = new File("Database/AccountRequests.txt");
+    static File doctorFeedbackFile = new File("Database/DoctorFeedback.txt");
+     static File appointmentsFile = new File("Database/Appointments.txt");
+    static File prescriptionsFile = new File("Database/Prescriptions.txt");
+    static File medicinesFile = new File("Database/Medicines.txt");
+    static File deletionRequestsFile = new File ("Database/DeletionRequests.txt");
     
      
     private static String currentUserID;
