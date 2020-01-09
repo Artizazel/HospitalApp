@@ -18,6 +18,14 @@ public class ViewFeedback extends javax.swing.JFrame {
     /**
      * Creates new form ViewFeedback
      */
+    
+    
+    
+    
+    
+    
+    
+    //Adds all of the unapporved feedback to a list to be displayed to the user
     public ViewFeedback() {
         initComponents();
         

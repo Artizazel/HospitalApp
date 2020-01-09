@@ -241,29 +241,11 @@ public class CreateAccount extends javax.swing.JFrame {
     private void btnCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate1ActionPerformed
         // TODO add your handling code here:
         
-        /*
         
-        boolean IDexists = false;
-        
-        
-        for (int i = 0; i < SystemDatabase.users.size(); i++) 
-        {
-            if(fieldUserID.getText().equals(SystemDatabase.users.get(i).getUserID()))
-            {
-            IDexists = true;
-            break;
-            }
-        }
-        
-        if(IDexists == true){
             
-            showMessageDialog(null, "User ID Already Exists");
-            
-        }
-        else
-        */
-            
-        
+        //Checks the size of the user database, 
+        //the first user to make the account will become the admin,
+        //any user after that will send a request to the secretary to make a patient accoutn
       
                 
         if(SystemDatabase.users.size() == 0)

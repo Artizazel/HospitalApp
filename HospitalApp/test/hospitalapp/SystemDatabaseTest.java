@@ -5,12 +5,14 @@
  */
 package hospitalapp;
 
-import org.junit.jupiter.api.AfterAll;
+import SystemPackage.DoctorFeedback;
+import SystemPackage.Medicine;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
 
 /**
  *
@@ -20,11 +22,8 @@ public class SystemDatabaseTest {
     
     public SystemDatabaseTest() {
     }
-
-        
-    /**
-     * Test of RetriveUsers method, of class SystemDatabase.
-     */
+    
+    
     @Test
     public void testRetriveUsers() {
         System.out.println("RetriveUsers");
@@ -41,5 +40,6 @@ public class SystemDatabaseTest {
     
         
     }
+    
     
 }

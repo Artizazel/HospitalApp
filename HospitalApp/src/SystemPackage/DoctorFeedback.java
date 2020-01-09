@@ -11,6 +11,7 @@ package SystemPackage;
  */
 public class DoctorFeedback {
     
+    //All relevant fields required for its object
     private String DoctorID;
     private String rating;
     private String notes;
@@ -18,7 +19,8 @@ public class DoctorFeedback {
    
 
     
-    
+    //DoctorFeedback constructor, fills the DoctorFeedback object with the releavant fields
+
     public DoctorFeedback(String DoctorID, String rating, String notes, String Status) {
         this.DoctorID = DoctorID;
         this.rating = rating;

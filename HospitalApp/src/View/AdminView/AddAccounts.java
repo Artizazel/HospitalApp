@@ -18,6 +18,10 @@ public class AddAccounts extends javax.swing.JFrame {
     /**
      * Creates new form AddAccounts
      */
+    
+    
+    
+    //Default selection
     public AddAccounts() {
         initComponents();
         
@@ -228,6 +232,11 @@ public class AddAccounts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldPasswordActionPerformed
 
+    
+    
+    //Creates a new admin or secretary depending on which radio button the user has selected
+    
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         

@@ -13,7 +13,7 @@ import hospitalapp.IUser;
  */
 public class Admin implements IUser{
     
-    
+    //All relevant fields as defined by the IUser interface
     private String userID;
     private String firstName;
     private String surname;
@@ -23,6 +23,7 @@ public class Admin implements IUser{
     private String gender;
     
 
+    //Admin constructor, fills the admin object with the releavant fields
     public Admin(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
         this.firstName = firstName;

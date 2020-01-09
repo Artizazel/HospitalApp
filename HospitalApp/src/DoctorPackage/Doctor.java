@@ -13,6 +13,7 @@ import hospitalapp.IUser;
  */
 public class Doctor implements IUser{
     
+     //All relevant fields as defined by the IUser interface
     private String userID;
     private String firstName;
     private String surname;
@@ -23,6 +24,7 @@ public class Doctor implements IUser{
 
     
     
+    //Doctor constructor, fills the doctor object with the releavant fields
     public Doctor(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
         this.firstName = firstName;

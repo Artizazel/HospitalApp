@@ -161,6 +161,9 @@ public class CreateFeedback extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnCancel1ActionPerformed
 
+    
+    //Edits the notes in the selected feedkback, and sets its status as approved
+    
     private void btnSendFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendFeedbackActionPerformed
         // TODO add your handling code here:
         

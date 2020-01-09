@@ -134,11 +134,17 @@ public class LoginForm extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         
+        
+        
+        
         String userID = txtID.getText();
         String password = txtPassword.getText();
         
         
-        
+        //Checks the system for the ID entered by the current user
+        //If the ID exists it will then check that the user has entered the correct password
+        //If the correct password is entered, the ID will be stored as the current user
+        //and the equivalent homepage will be created depending on the type of user
         
         for (int i = 0; i < SystemDatabase.users.size(); i++) {
             

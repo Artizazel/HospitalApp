@@ -13,6 +13,7 @@ import hospitalapp.IUser;
  */
 public class Secretary implements IUser{
     
+     //All relevant fields as defined by the IUser interface
     private String userID;
     public String firstName;
     private String surname;
@@ -21,6 +22,9 @@ public class Secretary implements IUser{
     private String age;
     private String gender;
 
+    
+    
+    //Secretary constructor, fills the secretary object with the releavant fields
     public Secretary(String userID, String firstName, String surname, String address, String password) {
         this.userID = userID;
         this.firstName = firstName;

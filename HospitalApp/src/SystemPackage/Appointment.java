@@ -11,12 +11,17 @@ package SystemPackage;
  */
 public class Appointment {
     
+    
+    //All relevant fields required for its object
     private String docId;
     private String patientID;
     private String dates;
     private String status;
 
     
+    
+     //Appointment constructor, fills the Appointment object with the releavant fields
+
     public Appointment(String docId, String patientID, String dates, String status) {
         this.docId = docId;
         this.patientID = patientID;

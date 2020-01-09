@@ -5,12 +5,15 @@
  */
 package SystemPackage;
 
+import hospitalapp.SystemDatabase;
+
 /**
  *
  * @author sbloxham2
  */
 public class AccountRequest {
     
+    //All relevant fields required for its object
     private String firstName;
     private String surname;
     private String address;
@@ -19,6 +22,8 @@ public class AccountRequest {
     private String password;
 
     
+    
+    //AccountRequest constructor, fills the AccountRequest object with the releavant fields
     public AccountRequest(String firstName, String surname, String address, String password, String gender, String age) {
         this.firstName = firstName;
         this.surname = surname;

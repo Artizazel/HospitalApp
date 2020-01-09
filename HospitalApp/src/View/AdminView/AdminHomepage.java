@@ -34,6 +34,8 @@ public class AdminHomepage extends javax.swing.JFrame {
 
     
     
+    
+    //Is used by the login class to show the user notifications
     public static void checkNotifs(){
         
         for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) 
@@ -151,6 +153,9 @@ public class AdminHomepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    //The buttons are used to navigate through the different functions
+    
     private void btnRemoveAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveAccountsActionPerformed
         // TODO add your handling code here:
         

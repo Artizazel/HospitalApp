@@ -11,6 +11,8 @@ package SystemPackage;
  */
 public class Prescription {
     
+    
+    //All relevant fields required for its object
     private String docID;
     private String patientID;
     private String doctorNotes;
@@ -19,6 +21,9 @@ public class Prescription {
     private String dosage;
     private boolean recieved;
 
+    
+    //Prescription constructor, fills the Prescription object with the releavant fields
+    
     public Prescription(String docID, String patientID, String doctorNotes, String medName, Long quantity, String dosage, boolean recieved) {
         this.docID = docID;
         this.patientID = patientID;

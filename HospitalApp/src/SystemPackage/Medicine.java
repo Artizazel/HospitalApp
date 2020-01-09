@@ -11,10 +11,13 @@ package SystemPackage;
  */
 public class Medicine {
     
-    private String name;
     
+    //All relevant fields required for its object
+    private String name;
     private long stock;
 
+    //Medicine constructor, fills the Medicine object with the releavant fields
+    
     public Medicine(String name, long stock) {
         this.name = name;
         this.stock = stock;
