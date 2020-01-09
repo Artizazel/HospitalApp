@@ -5,10 +5,12 @@
  */
 package hospitalapp;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
 
 /**
  *
@@ -18,121 +20,26 @@ public class SystemDatabaseTest {
     
     public SystemDatabaseTest() {
     }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
 
-    @Test
-public void testIsComplete() {
- fail("Test not yet implemented");
-}
-
-   @Test
-public void testY() {
- 
-}
-    
-    
-    @Test
-    public void retriveUsersTest() {
         
-        System.out.println("sdsasasasda");
+    /**
+     * Test of RetriveUsers method, of class SystemDatabase.
+     */
+    @Test
+    public void testRetriveUsers() {
+        System.out.println("RetriveUsers");
+        SystemDatabase.RetriveUsers();
         
-        fail("Test not yet implemented");
+        if(SystemDatabase.users.size() > 0)
+        {
+            System.out.println("Database has users in it");
+        }
+        else
+        {
+            fail("user arraylist is empty");
+        }
+    
         
-    }
-
-    @Test
-    public void testSaveUsers() {
-    }
-
-    @Test
-    public void testSaveFeedback() {
-    }
-
-    @Test
-    public void testRetriveFeedback() {
-    }
-
-    @Test
-    public void testSavePrescriptions() {
-    }
-
-    @Test
-    public void testRetrivePrescriptions() {
-    }
-
-    @Test
-    public void testSaveDeletionRequests() {
-    }
-
-    @Test
-    public void testRetriveDeletionRequests() {
-    }
-
-    @Test
-    public void testSaveAppointments() {
-    }
-
-    @Test
-    public void testRetriveAppointments() {
-    }
-
-    @Test
-    public void testSaveAccountRequests() {
-    }
-
-    @Test
-    public void testRetriveAccountRequests() {
-    }
-
-    @Test
-    public void testSaveMedicines() {
-    }
-
-    @Test
-    public void testRetriveMedicines() {
-    }
-
-    @Test
-    public void testRetriveDatabase() {
-    }
-
-    @Test
-    public void testSaveDatabase() {
-    }
-
-    @Test
-    public void testRemoveUser() {
-    }
-
-    @Test
-    public void testFindSecretary() {
-    }
-
-    @Test
-    public void testFindFeedback() {
-    }
-
-    @Test
-    public void testFindUser() {
-    }
-
-    @Test
-    public void testFindMed() {
-    }
-
-    @Test
-    public void testGetCurrentUserID() {
-    }
-
-    @Test
-    public void testSetCurrentUserID() {
     }
     
 }

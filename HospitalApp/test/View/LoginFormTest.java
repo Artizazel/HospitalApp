@@ -27,17 +27,6 @@ public class LoginFormTest {
     public LoginFormTest() {
     }
     
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
-
-    @Test
-    public void testMain() {
-    }
     
     
     @Test
