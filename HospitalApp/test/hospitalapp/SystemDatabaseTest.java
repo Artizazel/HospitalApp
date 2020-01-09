@@ -39,7 +39,12 @@ public void testY() {
     
     
     @Test
-    public void testRetriveUsers() {
+    public void retriveUsersTest() {
+        
+        System.out.println("sdsasasasda");
+        
+        fail("Test not yet implemented");
+        
     }
 
     @Test
