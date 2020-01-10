@@ -24,6 +24,7 @@ public class CreateFeedback extends javax.swing.JFrame {
         initComponents();
         
         
+        //Fills the combo box with unapproved doctor feedback to be selected
         
         for (int i = 0; i < SystemDatabase.doctorFeedback.size(); i++) {
             if(SystemDatabase.doctorFeedback.get(i).getStatus().equals("unapproved"))

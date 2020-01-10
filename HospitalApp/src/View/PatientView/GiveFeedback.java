@@ -18,6 +18,9 @@ public class GiveFeedback extends javax.swing.JFrame {
     /**
      * Creates new form GiveFeedback
      */
+    
+    //Fills the combo box with potential doctors
+    
     public GiveFeedback() {
         initComponents();
         
@@ -179,9 +182,14 @@ public class GiveFeedback extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         
+        new PatientHomepage().setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    
+    //Creates a feedback object and adds it to the database
+    
     private void btnSendFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendFeedbackActionPerformed
         // TODO add your handling code here:
 

@@ -19,6 +19,12 @@ public class ViewAppointment extends javax.swing.JFrame {
     /**
      * Creates new form ViewAppointment
      */
+    
+    
+    
+    
+    //Adds all appointments relevant to that user
+    
     public ViewAppointment() {
         initComponents();
         

@@ -25,7 +25,6 @@ public class AddAccounts extends javax.swing.JFrame {
     public AddAccounts() {
         initComponents();
         
-        
         radDoc.setSelected(true);
     }
 
@@ -53,6 +52,7 @@ public class AddAccounts extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         lblDoctor1 = new javax.swing.JLabel();
         fieldUserID = new javax.swing.JTextField();
+        radAdmin = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,17 +131,18 @@ public class AddAccounts extends javax.swing.JFrame {
             }
         });
 
+        radAdmin.setText("New Admin");
+        radAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(radDoc)
-                .addGap(30, 30, 30)
-                .addComponent(radSec)
-                .addGap(109, 109, 109))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
@@ -174,7 +175,14 @@ public class AddAccounts extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblDoctor1)
                                         .addGap(223, 223, 223))
-                                    .addComponent(fieldUserID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(fieldUserID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(radDoc)
+                        .addGap(30, 30, 30)
+                        .addComponent(radSec)
+                        .addGap(18, 18, 18)
+                        .addComponent(radAdmin)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -182,11 +190,12 @@ public class AddAccounts extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(radSec)
-                    .addComponent(radDoc))
-                .addGap(17, 17, 17)
+                    .addComponent(radDoc)
+                    .addComponent(radAdmin))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,12 +255,12 @@ public class AddAccounts extends javax.swing.JFrame {
         
             
             
-        String userId = fieldUserID.getText();
+       String userId = fieldUserID.getText();
         
-        int userID = Integer.parseInt(userId);
+       int userID = Integer.parseInt(userId);
         
         
-        if(radDoc.isSelected() && !radSec.isSelected())
+        if(radDoc.isSelected())
         {
         for (int i = 0; i < SystemDatabase.users.size(); i++) 
         {
@@ -262,11 +271,22 @@ public class AddAccounts extends javax.swing.JFrame {
             }
         }
         }
-        else if(radSec.isSelected() && !radDoc.isSelected())
+        else if(radSec.isSelected())
         {
         for (int i = 0; i < SystemDatabase.users.size(); i++) 
         {
             if(("S" + fieldUserID.getText()).equals(SystemDatabase.users.get(i).getUserID()))
+            {
+            IDexists = true;
+            break;
+            }
+        }
+        }
+        else if(radAdmin.isSelected())
+        {
+        for (int i = 0; i < SystemDatabase.users.size(); i++) 
+        {
+            if(("A" + fieldUserID.getText()).equals(SystemDatabase.users.get(i).getUserID()))
             {
             IDexists = true;
             break;
@@ -281,7 +301,7 @@ public class AddAccounts extends javax.swing.JFrame {
         }
         else{
         
-        if(radDoc.isSelected() && !radSec.isSelected())
+        if(radDoc.isSelected())
         {
             
               UserFactory.createUser("D" + fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
@@ -290,10 +310,20 @@ public class AddAccounts extends javax.swing.JFrame {
                     this.dispose();
             
         }
-        else if(!radDoc.isSelected() && radSec.isSelected())
+        else if(radSec.isSelected())
         {
             
             UserFactory.createUser("S" + fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
+        showMessageDialog(null, "Account Created");
+         new AdminHomepage().setVisible(true);
+                    this.dispose();
+             
+            
+        }
+        else if(radAdmin.isSelected())
+        {
+            
+            UserFactory.createUser("A" + fieldUserID.getText(), fieldFirstName.getText(), fieldSurname.getText(), fieldAddress.getText(), fieldPassword.getText(), "", "");
         showMessageDialog(null, "Account Created");
          new AdminHomepage().setVisible(true);
                     this.dispose();
@@ -309,6 +339,7 @@ public class AddAccounts extends javax.swing.JFrame {
     private void radSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radSecActionPerformed
         // TODO add your handling code here:
         radDoc.setSelected(false);
+        radAdmin.setSelected(false);
         
     }//GEN-LAST:event_radSecActionPerformed
 
@@ -327,7 +358,17 @@ public class AddAccounts extends javax.swing.JFrame {
     private void radDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radDocActionPerformed
         // TODO add your handling code here:
         radSec.setSelected(false);
+        radAdmin.setSelected(false);
+        
+        
     }//GEN-LAST:event_radDocActionPerformed
+
+    private void radAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAdminActionPerformed
+        // TODO add your handling code here:
+        
+        radSec.setSelected(false);
+        radDoc.setSelected(false);
+    }//GEN-LAST:event_radAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,6 +419,7 @@ public class AddAccounts extends javax.swing.JFrame {
     private javax.swing.JLabel lblDoctor2;
     private javax.swing.JLabel lblDoctor3;
     private javax.swing.JLabel lblDoctor5;
+    private javax.swing.JRadioButton radAdmin;
     private javax.swing.JRadioButton radDoc;
     private javax.swing.JRadioButton radSec;
     // End of variables declaration//GEN-END:variables

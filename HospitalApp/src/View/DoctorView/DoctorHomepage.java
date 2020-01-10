@@ -22,6 +22,8 @@ public class DoctorHomepage extends javax.swing.JFrame {
     
     static boolean newAppointments = false;
     
+    
+    //Displays a welcome message using the user's name
     public DoctorHomepage() {
         initComponents();
         
@@ -157,6 +159,10 @@ public class DoctorHomepage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
 
+    
+    
+    //Is used by the login class to show the user notifications
+    
     public static void checknotifs(){
         
         for (int i = 0; i < SystemDatabase.appointments.size(); i++) 

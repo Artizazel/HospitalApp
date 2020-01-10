@@ -20,6 +20,11 @@ public class ViewHistory extends javax.swing.JFrame {
     /**
      * Creates new form ViewHistory
      */
+    
+    
+    
+    //Adds of the completed appointments and prescriptions to the lists
+    
     public ViewHistory() {
         initComponents();
         

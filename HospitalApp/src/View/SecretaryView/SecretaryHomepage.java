@@ -21,6 +21,12 @@ public class SecretaryHomepage extends javax.swing.JFrame {
     /**
      * Creates new form SecretaryHomepage
      */
+    
+    
+    
+    
+    //Displays a welcome message using the user's name
+    
     public SecretaryHomepage() {
         initComponents();
         
@@ -28,6 +34,8 @@ public class SecretaryHomepage extends javax.swing.JFrame {
         
     }
 
+    
+    //Is used by the login class to show the user notifications
     
     
     public static void checkNotifs(){

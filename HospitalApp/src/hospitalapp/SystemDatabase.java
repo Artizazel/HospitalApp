@@ -29,6 +29,9 @@ import org.json.simple.parser.ParseException;
  */
 public class SystemDatabase implements DatabaseControl{
     
+    
+    
+    //Stores arraylists of all the required data, used by the observer pattern to allow users to be observers and observables
     public static ArrayList<IUser> users = new ArrayList<>();
     
     public static ArrayList<AccountRequest> accountRequests = new ArrayList<>();
@@ -50,6 +53,10 @@ public class SystemDatabase implements DatabaseControl{
      
     private static String currentUserID;
     
+    
+    
+    
+    //Reads all json objects from the text file, converts them, then fills the users arraylist with the saved users
     public static void RetriveUsers()
     {
         
@@ -110,6 +117,8 @@ public class SystemDatabase implements DatabaseControl{
     }
     
     
+    
+    //Converts all user objects in the arraylist to json objects and writes them to a text file
     public static void SaveUsers()
     {
         
@@ -167,6 +176,7 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
+    //Reads all json objects from the text file, converts them, then fills the feedback arraylist with the saved feedback
     public static void SaveFeedback()
     {
         
@@ -810,7 +820,7 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
-     
+     //Runs all read scripts
     public static void RetriveDatabase()
      {        
          
@@ -832,7 +842,7 @@ public class SystemDatabase implements DatabaseControl{
     
     
     
-    
+    //Runs all write scripts
      public static void SaveDatabase()
      {
               
@@ -858,7 +868,7 @@ public class SystemDatabase implements DatabaseControl{
         
     }
      
-    
+    //Removes a user from the arraylist using their userID, then saves the database
      public static void RemoveUser(String userID)
      {   
          
@@ -878,7 +888,7 @@ public class SystemDatabase implements DatabaseControl{
      
      
      
-    
+    //Finds the first available secretary
      public static IUser findSecretary()
      {
          
@@ -893,6 +903,9 @@ public class SystemDatabase implements DatabaseControl{
          
      }
      
+     
+     
+     //Finds feedback using the notes made
      public static DoctorFeedback findFeedback(String notes)
      {
          
@@ -906,6 +919,7 @@ public class SystemDatabase implements DatabaseControl{
          return null;
      }
      
+     //Finds a user using ther userID
      public static IUser findUser(String userID)
      {
          
@@ -919,7 +933,7 @@ public class SystemDatabase implements DatabaseControl{
          return null;
      }
      
-     
+     //Finds a medicine object using its name
      public static Medicine findMed(String medName)
      {
          
@@ -934,6 +948,7 @@ public class SystemDatabase implements DatabaseControl{
      }
      
 
+     
     public static String getCurrentUserID() {
         return currentUserID;
     }

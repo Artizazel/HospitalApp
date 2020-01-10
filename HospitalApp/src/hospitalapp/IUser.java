@@ -11,6 +11,7 @@ package hospitalapp;
  */
 public interface IUser {
     
+    //All relevant fields required by users
     String userID = "";
     public String firstName = "";
     String surname = "";

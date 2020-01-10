@@ -24,6 +24,8 @@ public class CreatePrescription extends javax.swing.JFrame {
     public CreatePrescription() {
         initComponents();
         
+        //Fills the combo boxes with all patients and all medicine to be selected
+        
         
         for (int i = 0; i < SystemDatabase.users.size(); i++) {
             if(SystemDatabase.users.get(i).getUserID().charAt(0) == 'P')
@@ -208,6 +210,9 @@ public class CreatePrescription extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    
+    //Creates a prescription object (based on the user's input) and adds it to the database
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         

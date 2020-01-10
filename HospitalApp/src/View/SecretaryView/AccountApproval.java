@@ -23,6 +23,10 @@ public class AccountApproval extends javax.swing.JFrame {
     /**
      * Creates new form AccountApproval
      */
+    
+    
+    //Fills the list with all account requests
+    
     public AccountApproval() {
         initComponents();
         
@@ -143,6 +147,11 @@ public class AccountApproval extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    
+    
+    
+    //Creates a patient account based on the information porovided by the account reqeust
+    
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
         

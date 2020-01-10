@@ -25,6 +25,11 @@ public class PatientHomepage extends javax.swing.JFrame {
     /**
      * Creates new form PatientHomepage
      */
+    
+    
+    
+    
+    //Displays a welcome message using the user's name
     public PatientHomepage() {
         initComponents();
         
@@ -169,6 +174,9 @@ public class PatientHomepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //Is used by the login class to show the user notifications
     
     public static void checkNotifs(){
         

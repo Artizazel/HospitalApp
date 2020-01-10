@@ -23,6 +23,10 @@ public class AppointmentRequests extends javax.swing.JFrame {
      */
     ArrayList<Appointment> tempAppointment = new ArrayList<>();
     
+    
+    
+    //Fills the combo box with dotors
+    //Fills the list with pending appointments
     public AppointmentRequests() {
         initComponents();
         
@@ -182,6 +186,10 @@ public class AppointmentRequests extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    
+    
+    //Edits the data and sets the status of the selected appointment
+    
     private void btnArrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrangeActionPerformed
         // TODO add your handling code here:
         
@@ -211,6 +219,9 @@ public class AppointmentRequests extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnArrangeActionPerformed
 
+    
+    //Deletes the selected appointment
+    
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         

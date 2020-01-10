@@ -18,6 +18,11 @@ public class OrderMedicine extends javax.swing.JFrame {
     /**
      * Creates new form OrderMedicine
      */
+    
+    
+    
+    //Fills the combo box with the names of types of medicine
+    //Fills the list with types of medicine and their amounts
     public OrderMedicine() {
         initComponents();
         
@@ -167,6 +172,9 @@ public class OrderMedicine extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBack1ActionPerformed
 
+    
+    //Increases the medicine stock by the amount specified
+    
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
         

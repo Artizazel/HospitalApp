@@ -19,6 +19,10 @@ public class ViewFeedback extends javax.swing.JFrame {
     /**
      * Creates new form ViewFeedback
      */
+    
+    
+    //Fills the combo box with doctors to be selected
+    
     public ViewFeedback() {
         initComponents();
         
@@ -113,13 +117,17 @@ public class ViewFeedback extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
 
-        new AdminHomepage().setVisible(true);
+        new PatientHomepage().setVisible(true);
         this.dispose();
         
         
 
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    
+    
+    //Refreshes the list of feedback depending on what doctor was chosen
+    
     private void combDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combDocActionPerformed
         // TODO add your handling code here:
         

@@ -24,6 +24,10 @@ public class ViewAppointments extends javax.swing.JFrame {
     
     ArrayList<Appointment> tempAppointment = new ArrayList<>();
     
+    
+    
+    //Fills the list with verified appointments with that doctor
+    
     public ViewAppointments() {
         initComponents();
         
@@ -123,6 +127,9 @@ public class ViewAppointments extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    //Sets the selected appointment's status to completed and refreshes the list
+    
     private void btnCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletedActionPerformed
         // TODO add your handling code here:
         

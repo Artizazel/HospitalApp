@@ -24,6 +24,8 @@ public class GiveMedicine extends javax.swing.JFrame {
      */
     ArrayList<Prescription> tempPres = new ArrayList<>();
     
+    
+    //Fills the list with prescriptions that haven't been recieved yet
     public GiveMedicine() {
         initComponents();
         
@@ -133,6 +135,10 @@ public class GiveMedicine extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    
+    
+    //Finds the medicine requested by the prescription and removes the stock required
+    //If the stock isn't enough to compensate the prescription a message is shown
     private void btnMedGivenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedGivenActionPerformed
         // TODO add your handling code here:
         

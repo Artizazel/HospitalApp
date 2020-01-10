@@ -22,6 +22,8 @@ public class CreateAppointments extends javax.swing.JFrame {
         initComponents();
         
         
+        //Fills the combo box with all patients to be selected
+        
         for (int i = 0; i < SystemDatabase.users.size(); i++) {
             if(SystemDatabase.users.get(i).getUserID().charAt(0) == 'P')
             {
@@ -156,6 +158,10 @@ public class CreateAppointments extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    
+    
+        //Creates a verified appointment object with the selected patient
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         
@@ -175,6 +181,7 @@ public class CreateAppointments extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
+        //Creates a pending appointment object with the selected patient
     private void btnProposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProposeActionPerformed
         // TODO add your handling code here:
         

@@ -19,6 +19,9 @@ public class AccountRemoval extends javax.swing.JFrame {
     /**
      * Creates new form AccountRemoval
      */
+    
+    
+    //Fills the list with deletionrequests
     public AccountRemoval() {
         initComponents();
         
@@ -112,6 +115,9 @@ public class AccountRemoval extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //Finds the selected user and removes their account from the database
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
 

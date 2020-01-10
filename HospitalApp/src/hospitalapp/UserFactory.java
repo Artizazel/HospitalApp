@@ -16,6 +16,9 @@ import SecretaryPackage.Secretary;
  */
 public class UserFactory {
     
+    
+    
+    //Selects the type of user to be made and creates it based on the input, then saves the database
     public static void createUser(String userID,String firstName, String surname, String address, String password, String gender, String age)
     {
         

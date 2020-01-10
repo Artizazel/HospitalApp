@@ -26,6 +26,11 @@ public class ViewPrescription extends javax.swing.JFrame {
     Prescription currentPrescription;
     boolean presFound = false;
     
+    
+    
+    
+    
+    //Displays all of the information from the patient's most recent prescription
     public ViewPrescription() {
         initComponents();
         

@@ -90,6 +90,9 @@ public class DeleteAccount extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnNoActionPerformed
 
+    
+    //Add the current userID to the deletionsRequests database
+    
     private void btnYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesActionPerformed
         // TODO add your handling code here:
         

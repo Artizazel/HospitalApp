@@ -19,6 +19,10 @@ public class ViewHistory extends javax.swing.JFrame {
     /**
      * Creates new form ViewHistory
      */
+    
+    
+    //Fills the combo box with patients to be selected
+    
     public ViewHistory() {
         initComponents();
         
@@ -142,6 +146,9 @@ public class ViewHistory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    //Fills the appointments and prescriptions lists with the relevant information
+    
     private void combPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combPatActionPerformed
         // TODO add your handling code here:
         
