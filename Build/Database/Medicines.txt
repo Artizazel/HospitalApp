@@ -1,1 +1,0 @@
-[{"name":"Ibuprofen","stock":12},{"name":"Health Potion","stock":3},{"name":"Paracetamol","stock":0},{"name":"Antibiotics","stock":12},{"name":"Xanax","stock":5},{"name":"Oxycodone","stock":0},{"name":"Asbestos","stock":5},{"name":"Viagra","stock":20},{"name":"Clonazepam","stock":2}]
